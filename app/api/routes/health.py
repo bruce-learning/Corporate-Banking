@@ -25,6 +25,7 @@ async def ready(request: Request):
         "supported_degraded_mode": "keyword_retrieval_and_react_evidence_extract",
         "transaction_execution": False,
         "execution_modes": ["fixed", "parallel", "plan_execute"],
+        "orchestration_backend": request.app.state.settings.orchestration_backend,
         "agent_execution_mode": "bounded_react" if request.app.state.settings.react_enabled else "single_pass",
     }
     return JSONResponse(body, status_code=200 if available else 503)
@@ -74,6 +75,7 @@ async def admin_status(request: Request, identity: Identity = Depends(administra
         "bank_chat_ready": request.app.state.chat_service is not None,
         "document_preview_formats": ["json", "jsonl", "txt", "md", "docx", "pdf", "xlsx", "xls"],
         "paid_calls_enabled": request.app.state.settings.enable_paid_model_calls,
+        "orchestration_backend": request.app.state.settings.orchestration_backend,
         "skills_loaded": request.app.state.skill_manager.summary()["count"] if request.app.state.skill_manager else 0,
         "memory_layers": ["redis_working", "chroma_conversation_summaries", "chroma_user_profiles"],
     }

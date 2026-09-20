@@ -27,6 +27,7 @@ from app.api.routes.skills import router as skills_router
 from app.core.application.chat import ChatService
 from app.core.intent.recognizer import IntentRecognizer
 from app.core.orchestration.bank import BankOrchestrator
+from app.core.orchestration.langgraph import LangGraphBankOrchestrator
 from app.infrastructure.cache.store import Cache
 from app.infrastructure.database.store import Store
 from app.infrastructure.observability.body_limit import BodyLimitMiddleware
@@ -73,15 +74,24 @@ def create_app(settings: Settings | None = None, model_client=None, mcp_gateway=
         )
         if application.state.store and application.state.cache:
             recognizer = IntentRecognizer(application.state.model_client, settings.intent_confidence_threshold)
-            orchestrator = BankOrchestrator(
+            orchestrator_class = (
+                LangGraphBankOrchestrator
+                if settings.orchestration_backend == "langgraph" else BankOrchestrator
+            )
+            orchestrator_options = {
+                "react_enabled": settings.react_enabled,
+                "react_max_steps": settings.react_max_steps,
+                "react_max_tool_calls": settings.react_max_tool_calls,
+                "react_timeout_seconds": settings.react_timeout_seconds,
+                "react_max_evidence": settings.react_max_evidence,
+            }
+            if settings.orchestration_backend == "langgraph":
+                orchestrator_options["recursion_limit"] = settings.langgraph_recursion_limit
+            orchestrator = orchestrator_class(
                 recognizer, application.state.mcp_gateway, application.state.model_client,
                 settings.chat_retrieval_top_k, settings.context_rewrite_max_messages,
                 application.state.metrics, application.state.skill_manager,
-                react_enabled=settings.react_enabled,
-                react_max_steps=settings.react_max_steps,
-                react_max_tool_calls=settings.react_max_tool_calls,
-                react_timeout_seconds=settings.react_timeout_seconds,
-                react_max_evidence=settings.react_max_evidence,
+                **orchestrator_options,
             )
             application.state.memory_service = MemoryService(
                 application.state.store, application.state.cache, application.state.vector_store,

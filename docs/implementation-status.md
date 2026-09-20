@@ -51,6 +51,8 @@ Streamable HTTP 三个只读知识工具。鉴权、角色检查、会话持久�
   记忆 Embedding 预算和受限 OCR；扫描 PDF OCR 真实样例通过，Worker 停止/恢复验收通过。
 - 2026-09-20 完成领域内有界 ReAct：只读 MCP 动作白名单、最大步骤/工具/时间/证据预算、重复检索停止、
   显式降级、ReAct Trace 和 Alembic 0008。
+- 2026-09-20 完成 LangGraph 多 Agent 编排：共享 State、条件路由、动态 Send 并行领域子图、依赖顺序执行、
+  Reducer 结果聚合、节点 Trace、旧编排器配置回滚和 Alembic 0009；远程完整测试 92 项通过。
 - 完成无构建依赖前端演示，并由 FastAPI 同源提供；自动化测试覆盖入口静态资源、认证保护及主要后端契约。
 - OCR 只处理扫描 PDF，最多30页、200 DPI、Tesseract `chi_sim+eng`，不自动发布；不等同于复杂版面理解。
 - 当前仍通过 root 建立连接；公开部署前必须补齐专用运行账户、认证与 TLS 等运维措施。

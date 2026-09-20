@@ -2,15 +2,15 @@
 
 ## 项目简介
 
-本项目是一个面向银行对公业务场景的可运行 AI Agent 客服系统，基于 **FastAPI + Alibaba Cloud Qwen + MCP + ChromaDB + Redis + PostgreSQL** 构建。
+本项目是一个面向银行对公业务场景的可运行 AI Agent 客服系统，基于 **FastAPI + LangGraph + Alibaba Cloud Qwen + MCP + ChromaDB + Redis + PostgreSQL** 构建。
 
-系统不是单轮大模型聊天封装，而是一条完整、可审计的业务问答链路：对用户问题进行风险检查和三路意图识别，根据问题复杂度选择单 Agent、并行 Agent 或 Plan-and-Execute 模式，再通过标准 MCP 工具完成知识检索、答案生成、引用校验、降级处理、会话记忆和质量评测。
+系统不是单轮大模型聊天封装，而是一条完整、可审计的业务问答链路：LangGraph 通过共享 State、条件边、动态 Send 和 Reducer 编排风险检查、三路意图识别、单 Agent、并行 Agent 与 Plan-and-Execute，再通过标准 MCP 工具完成知识检索、答案生成、引用校验、降级处理、会话记忆和质量评测。
 
 当前仓库包含后端服务、前端演示工作台、虚构银行演示知识、合成评测集、文档导入流水线、Docker Compose 和完整测试。它用于工程演示与学习，**不是银行生产系统，不连接真实账户，也不执行交易、审批或资金操作**。
 
 ## 核心能力
 
-- **多 Agent 业务路由**：Product、Process、Policy 三个领域 Agent 分别处理产品、办理流程和收费/合规问题。
+- **LangGraph 多 Agent 编排**：以共享 State 传递意图、计划、证据和执行状态；Product、Process、Policy 领域子图支持并行分发、依赖执行和 Reducer 聚合。
 - **受控 ReAct Agent**：领域 Agent 可根据已有证据选择继续补查或结束，限制最大步骤、工具次数、执行时间和证据数量；重复检索、越界或超时会显式降级。
 - **三种外层执行模式**：简单问题走单 Agent；跨领域问题并行执行；复杂任务使用受控 Plan-and-Execute。
 - **三路意图融合**：Pattern、Embedding 和 LLM Few-shot 结合动态权重与低置信度降级。
@@ -20,7 +20,7 @@
 - **三层记忆体系**：Redis 保存当前会话工作记忆；ChromaDB 保存历史会话摘要和用户画像。
 - **文档解析与知识发布**：支持 JSON、JSONL、TXT、Markdown、DOCX、PDF、XLSX、XLS 和受限扫描 PDF OCR。
 - **后台任务**：Redis Streams 驱动文档导入、OCR、长期记忆生成和失败重试，PostgreSQL 保存任务真相。
-- **可观测与评测**：记录意图、Agent、计划、工具、证据、引用、降级、模型用量和耗时，并提供评测运行与 Bad Case 闭环。
+- **可观测与评测**：记录 LangGraph 节点 Trace、意图、Agent、计划、工具、证据、引用、降级、模型用量和耗时，并提供评测运行与 Bad Case 闭环。
 - **前端演示**：提供登录、会话、聊天、答案追踪、记忆管理、Skills、后台任务和文档导入界面。
 
 ## 系统架构
@@ -31,10 +31,11 @@ flowchart TD
     API --> AUTH[认证 / 限流 / 会话锁]
     AUTH --> SAFE[风险检查]
     SAFE --> INTENT[Pattern + Embedding + LLM 意图融合]
-    INTENT --> ROUTER[任务路由与执行模式]
-    ROUTER --> PRODUCT[Product ReAct Agent]
-    ROUTER --> PROCESS[Process ReAct Agent]
-    ROUTER --> POLICY[Policy ReAct Agent]
+    INTENT --> ROUTER[LangGraph StateGraph]
+    ROUTER --> PLAN[条件路由 / Send / Reducer]
+    PLAN --> PRODUCT[Product ReAct 子图]
+    PLAN --> PROCESS[Process ReAct 子图]
+    PLAN --> POLICY[Policy ReAct 子图]
     PRODUCT --> MCP[MCP 工具网关]
     PROCESS --> MCP
     POLICY --> MCP
@@ -46,7 +47,7 @@ flowchart TD
     REDIS --> WORKER[异步 Worker]
     WORKER --> PG
     WORKER --> CHROMA
-    ROUTER --> QWEN[Alibaba Cloud Qwen]
+    PLAN --> QWEN[Alibaba Cloud Qwen]
     QWEN --> GUARD[证据聚合 / 引用检查 / 降级]
     GUARD --> UI
 ```
@@ -58,6 +59,7 @@ flowchart TD
 | Product Agent | 产品功能、适用场景、产品条件和能力边界 |
 | Process Agent | 办理材料、前置条件、步骤、渠道、时效和收费环节 |
 | Policy Agent | 收费标准、额度、安全、合规与政策边界 |
+| LangGraph | 共享 State、条件边、Send 并行分发、Reducer 聚合和节点 Trace |
 | ReAct | 每个领域内部执行有界的 Action → Observation → 补查/结束循环 |
 | Fixed | 单一领域的简单问题 |
 | Parallel | 多领域问题并行检索和生成 |
@@ -70,7 +72,7 @@ flowchart TD
 | Web 与 API | FastAPI、Uvicorn、Pydantic v2、pydantic-settings |
 | LLM | Alibaba Cloud `qwen-plus`，OpenAI Compatible API |
 | Embedding | Alibaba Cloud `text-embedding-v4`，1024 维 |
-| Agent | 有界 ReAct、领域 Agent、并行编排、Plan-and-Execute、动态 Skills |
+| Agent | LangGraph StateGraph、有界 ReAct、领域子图、并行 Send、Plan-and-Execute、动态 Skills |
 | 工具协议 | MCP Python SDK v2、Streamable HTTP |
 | RAG | ChromaDB、BM25、加权 RRF、查询改写、引用检查 |
 | 工作记忆与队列 | Redis、Redis Streams |
@@ -101,6 +103,8 @@ chmod 600 var/secrets/docker-admin-initial-password
 ```dotenv
 ENABLE_PAID_MODEL_CALLS=true
 DASHSCOPE_API_KEY=your_api_key
+ORCHESTRATION_BACKEND=langgraph
+LANGGRAPH_RECURSION_LIMIT=30
 REACT_ENABLED=true
 REACT_MAX_STEPS=3
 REACT_MAX_TOOL_CALLS=3
@@ -194,6 +198,7 @@ Corporate-Banking-AI-Agent/
 │   │   ├── agents/                # Product / Process / Policy Agent
 │   │   ├── application/           # 编排、知识、任务与业务服务
 │   │   ├── intent/                # 三路意图识别
+│   │   ├── orchestration/         # LangGraph 主图、领域子图与旧版回滚编排器
 │   │   ├── memory/                # 三层记忆体系
 │   │   ├── rag/                   # BM25、向量检索与融合
 │   │   └── skills/                # 动态 Skills 加载
@@ -230,6 +235,7 @@ Corporate-Banking-AI-Agent/
 - `docs/backend-quality-verification.md`：后端质量验证
 - `docs/skills-memory-verification.md`：Skills 与记忆验证
 - `docs/memory-worker-frontend-verification.md`：Worker、记忆治理与前端验收
+- `docs/langgraph-verification.md`：LangGraph 多 Agent 编排与回归验证
 
 ## License
 

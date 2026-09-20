@@ -23,6 +23,7 @@ from app import __version__
 from app.config import Settings
 from app.core.intent.recognizer import LABELS, IntentRecognizer
 from app.core.orchestration.bank import BankOrchestrator
+from app.core.orchestration.langgraph import LangGraphBankOrchestrator
 from app.core.rag.hybrid import HybridSearchService
 from app.core.skills.manager import SkillManager
 from app.infrastructure.cache.store import Cache
@@ -209,14 +210,23 @@ async def evaluate(args) -> dict:
         cooldown_seconds=settings.mcp_circuit_cooldown_seconds, metrics=metrics_registry,
     )
     recognizer = IntentRecognizer(model, settings.intent_confidence_threshold)
-    orchestrator = BankOrchestrator(
+    orchestrator_class = (
+        LangGraphBankOrchestrator
+        if settings.orchestration_backend == "langgraph" else BankOrchestrator
+    )
+    orchestrator_options = {
+        "react_enabled": settings.react_enabled,
+        "react_max_steps": settings.react_max_steps,
+        "react_max_tool_calls": settings.react_max_tool_calls,
+        "react_timeout_seconds": settings.react_timeout_seconds,
+        "react_max_evidence": settings.react_max_evidence,
+    }
+    if settings.orchestration_backend == "langgraph":
+        orchestrator_options["recursion_limit"] = settings.langgraph_recursion_limit
+    orchestrator = orchestrator_class(
         recognizer, gateway, model, settings.chat_retrieval_top_k,
         settings.context_rewrite_max_messages, metrics_registry, skills,
-        react_enabled=settings.react_enabled,
-        react_max_steps=settings.react_max_steps,
-        react_max_tool_calls=settings.react_max_tool_calls,
-        react_timeout_seconds=settings.react_timeout_seconds,
-        react_max_evidence=settings.react_max_evidence,
+        **orchestrator_options,
     )
     if not await gateway.ready():
         raise RuntimeError("MCP 服务未就绪")

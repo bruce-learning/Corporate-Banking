@@ -34,7 +34,9 @@ class ChatResult(BaseModel):
     generation_mode: str
     model: str | None = None
     execution_mode: str = "fixed"
+    orchestration_backend: str = "legacy"
     plan_steps: list[dict] = Field(default_factory=list)
+    graph_trace: list[dict] = Field(default_factory=list)
     citation_valid: bool = True
     citation_coverage: float = 0.0
     model_usage: list[dict] = Field(default_factory=list)
@@ -68,6 +70,8 @@ def _citation_quality(answer: str, evidence: list[Evidence], drafts: list[AgentD
 
 
 class BankOrchestrator:
+    backend_name = "legacy"
+
     def __init__(self, recognizer: IntentRecognizer, gateway, model_client=None, top_k: int = 4,
                  context_rewrite_max_messages: int = 6, metrics=None, skill_manager=None, *,
                  react_enabled: bool = False, react_max_steps: int = 3,

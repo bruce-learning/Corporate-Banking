@@ -1,7 +1,7 @@
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
-SCHEMA_REVISION = "0008"
+SCHEMA_REVISION = "0009"
 
 
 class Store:

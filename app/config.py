@@ -72,6 +72,8 @@ class Settings(BaseSettings):
     chat_retrieval_top_k: int = Field(default=4, ge=1, le=5)
     intent_confidence_threshold: float = Field(default=0.58, ge=0.0, le=1.0)
     context_rewrite_max_messages: int = Field(default=6, ge=1, le=12)
+    orchestration_backend: Literal["legacy", "langgraph"] = "langgraph"
+    langgraph_recursion_limit: int = Field(default=30, ge=10, le=100)
     react_enabled: bool = True
     react_max_steps: int = Field(default=3, ge=1, le=5)
     react_max_tool_calls: int = Field(default=3, ge=1, le=5)
