@@ -179,7 +179,7 @@ python scripts/run_api.py
 ## 目录结构
 
 ```text
-EchoMind-Bank-Agent/
+Corporate-Banking-AI-Agent/
 ├── app/
 │   ├── main.py                    # FastAPI 应用入口
 │   ├── config.py                  # 环境与安全配置
