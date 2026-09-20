@@ -11,7 +11,8 @@
 ## 核心能力
 
 - **多 Agent 业务路由**：Product、Process、Policy 三个领域 Agent 分别处理产品、办理流程和收费/合规问题。
-- **三种执行模式**：简单问题走单 Agent；跨领域问题并行执行；复杂任务使用受控 Plan-and-Execute。
+- **受控 ReAct Agent**：领域 Agent 可根据已有证据选择继续补查或结束，限制最大步骤、工具次数、执行时间和证据数量；重复检索、越界或超时会显式降级。
+- **三种外层执行模式**：简单问题走单 Agent；跨领域问题并行执行；复杂任务使用受控 Plan-and-Execute。
 - **三路意图融合**：Pattern、Embedding 和 LLM Few-shot 结合动态权重与低置信度降级。
 - **标准 MCP 工具调用**：使用 MCP Python SDK v2 和 Streamable HTTP，包含参数校验、超时、重试、缓存、熔断和只读回退。
 - **混合 RAG 检索**：ChromaDB 向量检索、BM25 关键词检索和加权 RRF 融合，并进行领域、受众、状态及有效期过滤。
@@ -31,9 +32,9 @@ flowchart TD
     AUTH --> SAFE[风险检查]
     SAFE --> INTENT[Pattern + Embedding + LLM 意图融合]
     INTENT --> ROUTER[任务路由与执行模式]
-    ROUTER --> PRODUCT[Product Agent]
-    ROUTER --> PROCESS[Process Agent]
-    ROUTER --> POLICY[Policy Agent]
+    ROUTER --> PRODUCT[Product ReAct Agent]
+    ROUTER --> PROCESS[Process ReAct Agent]
+    ROUTER --> POLICY[Policy ReAct Agent]
     PRODUCT --> MCP[MCP 工具网关]
     PROCESS --> MCP
     POLICY --> MCP
@@ -57,6 +58,7 @@ flowchart TD
 | Product Agent | 产品功能、适用场景、产品条件和能力边界 |
 | Process Agent | 办理材料、前置条件、步骤、渠道、时效和收费环节 |
 | Policy Agent | 收费标准、额度、安全、合规与政策边界 |
+| ReAct | 每个领域内部执行有界的 Action → Observation → 补查/结束循环 |
 | Fixed | 单一领域的简单问题 |
 | Parallel | 多领域问题并行检索和生成 |
 | Plan-and-Execute | 有依赖关系的复杂问题按受控计划执行 |
@@ -68,7 +70,7 @@ flowchart TD
 | Web 与 API | FastAPI、Uvicorn、Pydantic v2、pydantic-settings |
 | LLM | Alibaba Cloud `qwen-plus`，OpenAI Compatible API |
 | Embedding | Alibaba Cloud `text-embedding-v4`，1024 维 |
-| Agent | 自定义领域 Agent、并行编排、Plan-and-Execute、动态 Skills |
+| Agent | 有界 ReAct、领域 Agent、并行编排、Plan-and-Execute、动态 Skills |
 | 工具协议 | MCP Python SDK v2、Streamable HTTP |
 | RAG | ChromaDB、BM25、加权 RRF、查询改写、引用检查 |
 | 工作记忆与队列 | Redis、Redis Streams |
@@ -99,6 +101,10 @@ chmod 600 var/secrets/docker-admin-initial-password
 ```dotenv
 ENABLE_PAID_MODEL_CALLS=true
 DASHSCOPE_API_KEY=your_api_key
+REACT_ENABLED=true
+REACT_MAX_STEPS=3
+REACT_MAX_TOOL_CALLS=3
+REACT_TIMEOUT_SECONDS=15
 POSTGRES_PASSWORD=replace_with_random_hex
 DATABASE_URL=postgresql+asyncpg://bankapp:replace_with_random_hex@postgres:5432/bank
 REDIS_PASSWORD=replace_with_random_hex

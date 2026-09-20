@@ -67,6 +67,7 @@ class ChatService:
                     latency_ms=result.latency_ms,
                     original_query=result.original_query, rewritten_query=result.rewritten_query,
                     execution_mode=result.execution_mode, plan_steps=result.plan_steps,
+                    react_steps=result.react_steps,
                     citation_valid=result.citation_valid, citation_coverage=result.citation_coverage,
                     skills_used=result.skills_used, memory_context=result.memory_context,
                 )

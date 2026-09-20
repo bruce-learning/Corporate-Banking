@@ -96,6 +96,7 @@ class ChatTrace(Base):
     rewritten_query: Mapped[str | None] = mapped_column(Text, nullable=True)
     execution_mode: Mapped[str] = mapped_column(String(20), default="fixed", nullable=False)
     plan_steps: Mapped[list] = mapped_column(JSON, default=list, nullable=False)
+    react_steps: Mapped[dict] = mapped_column(JSON, default=dict, nullable=False)
     citation_valid: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     citation_coverage: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)
     skills_used: Mapped[dict] = mapped_column(JSON, default=dict, nullable=False)

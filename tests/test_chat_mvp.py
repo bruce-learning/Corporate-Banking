@@ -64,7 +64,8 @@ async def test_policy_chat_persists_trace_and_citations(runtime):
     assert gateway.calls == ["policy"]
     assert "[资料:synthetic-policy-evidence]" in body["answer"]
     assert body["tool_calls"][0]["vector_backend"] == "chromadb"
-    assert body["generation_mode"] == "evidence_extract"
+    assert body["generation_mode"] == "react_evidence_extract"
+    assert body["react_steps"]["policy"][0]["action"] == "search_knowledge"
     trace = await runtime.client.get(f"/api/v1/chat/traces/{body['request_id']}", headers=headers)
     assert trace.status_code == 200 and trace.json()["evidence_ids"] == ["synthetic-policy-evidence"]
     assert trace.json()["skills_used"]["policy"] == [

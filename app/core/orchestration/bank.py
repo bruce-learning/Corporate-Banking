@@ -6,6 +6,7 @@ import time
 from pydantic import BaseModel, Field
 
 from app.core.agents.bank import AgentDraft, BankDomainAgent, DOMAIN_NAMES
+from app.core.agents.react import ReActDomainAgent
 from app.core.intent.recognizer import IntentDecision, IntentRecognizer
 from app.core.planning.query import rewrite_query
 from app.core.planning.task import PlanStep, TaskPlan, build_plan
@@ -38,6 +39,7 @@ class ChatResult(BaseModel):
     citation_coverage: float = 0.0
     model_usage: list[dict] = Field(default_factory=list)
     skills_used: dict[str, list[str]] = Field(default_factory=dict)
+    react_steps: dict[str, list[dict]] = Field(default_factory=dict)
     memory_context: dict = Field(default_factory=dict)
     latency_ms: int = 0
 
@@ -67,7 +69,10 @@ def _citation_quality(answer: str, evidence: list[Evidence], drafts: list[AgentD
 
 class BankOrchestrator:
     def __init__(self, recognizer: IntentRecognizer, gateway, model_client=None, top_k: int = 4,
-                 context_rewrite_max_messages: int = 6, metrics=None, skill_manager=None):
+                 context_rewrite_max_messages: int = 6, metrics=None, skill_manager=None, *,
+                 react_enabled: bool = False, react_max_steps: int = 3,
+                 react_max_tool_calls: int = 3, react_timeout_seconds: float = 15.0,
+                 react_max_evidence: int = 8):
         self.recognizer = recognizer
         self.gateway = gateway
         self.model_client = model_client
@@ -75,6 +80,11 @@ class BankOrchestrator:
         self.context_rewrite_max_messages = context_rewrite_max_messages
         self.metrics = metrics
         self.skill_manager = skill_manager
+        self.react_enabled = react_enabled
+        self.react_max_steps = react_max_steps
+        self.react_max_tool_calls = react_max_tool_calls
+        self.react_timeout_seconds = react_timeout_seconds
+        self.react_max_evidence = react_max_evidence
 
     async def run(self, message: str, context: list[dict], long_term_context: str = "",
                   memory_context: dict | None = None) -> ChatResult:
@@ -116,7 +126,7 @@ class BankOrchestrator:
         agent_context = list(context)
         if long_term_context:
             agent_context.append({"role": "memory", "content": long_term_context})
-        tool_results, drafts = await self._execute(plan, agent_context)
+        tool_results, drafts, react_steps = await self._execute(plan, agent_context)
         evidence_by_id: dict[str, Evidence] = {}
         for result in tool_results:
             for item in result.items:
@@ -160,7 +170,8 @@ class BankOrchestrator:
             plan_steps=[step.model_dump() for step in plan.steps],
             citation_valid=citation_valid, citation_coverage=citation_coverage,
             model_usage=usage,
-            skills_used=skills_used, memory_context=memory_context or {},
+            skills_used=skills_used, react_steps=react_steps,
+            memory_context=memory_context or {},
             latency_ms=int((time.monotonic() - started) * 1000),
         )
         self._chat_metric(result)
@@ -168,24 +179,44 @@ class BankOrchestrator:
 
     async def _execute(self, plan: TaskPlan, context: list[dict]):
         async def step_call(step: PlanStep, augmented_context: list[dict]):
+            if self.react_enabled:
+                outcome = await ReActDomainAgent(
+                    step.domain, self.gateway, self.model_client, self.skill_manager,
+                    top_k=self.top_k, max_steps=self.react_max_steps,
+                    max_tool_calls=self.react_max_tool_calls,
+                    timeout_seconds=self.react_timeout_seconds,
+                    max_evidence=self.react_max_evidence, metrics=self.metrics,
+                ).run(step.query, augmented_context)
+                draft = outcome.draft
+                step.status = "degraded" if draft.degraded or any(
+                    result.degraded or not result.success for result in outcome.tool_results
+                ) else "success"
+                return outcome.tool_results, draft, [item.model_dump() for item in outcome.steps]
             tool = await self.gateway.search(step.domain, step.query, self.top_k)
             draft = await BankDomainAgent(step.domain, self.model_client, self.skill_manager).answer(
                 step.query, augmented_context, tool.items if tool.success else []
             )
             step.status = "degraded" if tool.degraded or draft.degraded else "success"
-            return tool, draft
+            return [tool], draft, []
 
         if plan.execution_mode != "plan_execute":
-            pairs = await asyncio.gather(*[step_call(step, context) for step in plan.steps])
-            return [pair[0] for pair in pairs], [pair[1] for pair in pairs]
-        tools, drafts = [], []
+            outcomes = await asyncio.gather(*[step_call(step, context) for step in plan.steps])
+            tools = [tool for outcome in outcomes for tool in outcome[0]]
+            drafts = [outcome[1] for outcome in outcomes]
+            traces = {
+                step.domain: outcome[2] for step, outcome in zip(plan.steps, outcomes) if outcome[2]
+            }
+            return tools, drafts, traces
+        tools, drafts, traces = [], [], {}
         augmented = list(context)
         for step in plan.steps:
-            tool, draft = await step_call(step, augmented)
-            tools.append(tool)
+            step_tools, draft, step_trace = await step_call(step, augmented)
+            tools.extend(step_tools)
             drafts.append(draft)
+            if step_trace:
+                traces[step.domain] = step_trace
             augmented.append({"role": "assistant", "content": f"{DOMAIN_NAMES[step.domain]}步骤结果：{draft.answer}"})
-        return tools, drafts
+        return tools, drafts, traces
 
     def _fixed_response(self, intent: IntentDecision, risk: RiskDecision,
                         original: str, rewritten: str) -> ChatResult | None:

@@ -72,6 +72,11 @@ class Settings(BaseSettings):
     chat_retrieval_top_k: int = Field(default=4, ge=1, le=5)
     intent_confidence_threshold: float = Field(default=0.58, ge=0.0, le=1.0)
     context_rewrite_max_messages: int = Field(default=6, ge=1, le=12)
+    react_enabled: bool = True
+    react_max_steps: int = Field(default=3, ge=1, le=5)
+    react_max_tool_calls: int = Field(default=3, ge=1, le=5)
+    react_timeout_seconds: float = Field(default=15.0, ge=1.0, le=60.0)
+    react_max_evidence: int = Field(default=8, ge=1, le=20)
     ingestion_job_max_bytes: int = Field(default=10 * 1024 * 1024, ge=1024, le=20 * 1024 * 1024)
     chroma_mode: Literal["http", "persistent"] = "http"
     chroma_host: str = "127.0.0.1"
@@ -102,6 +107,8 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def require_private_runtime_addresses(self):
+        if self.react_max_tool_calls > self.react_max_steps:
+            raise ValueError("ReAct 工具调用上限不能大于步骤上限")
         loopback = {"127.0.0.1", "::1"}
         if self.deployment_mode == "native":
             if self.app_host not in loopback or self.mcp_host not in loopback or self.chroma_host not in loopback:

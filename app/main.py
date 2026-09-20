@@ -77,6 +77,11 @@ def create_app(settings: Settings | None = None, model_client=None, mcp_gateway=
                 recognizer, application.state.mcp_gateway, application.state.model_client,
                 settings.chat_retrieval_top_k, settings.context_rewrite_max_messages,
                 application.state.metrics, application.state.skill_manager,
+                react_enabled=settings.react_enabled,
+                react_max_steps=settings.react_max_steps,
+                react_max_tool_calls=settings.react_max_tool_calls,
+                react_timeout_seconds=settings.react_timeout_seconds,
+                react_max_evidence=settings.react_max_evidence,
             )
             application.state.memory_service = MemoryService(
                 application.state.store, application.state.cache, application.state.vector_store,

@@ -22,9 +22,10 @@ async def ready(request: Request):
         "stage": "fullstack_demo",
         "checks": checks,
         "paid_calls_enabled": request.app.state.settings.enable_paid_model_calls,
-        "supported_degraded_mode": "keyword_retrieval_and_evidence_extract",
+        "supported_degraded_mode": "keyword_retrieval_and_react_evidence_extract",
         "transaction_execution": False,
         "execution_modes": ["fixed", "parallel", "plan_execute"],
+        "agent_execution_mode": "bounded_react" if request.app.state.settings.react_enabled else "single_pass",
     }
     return JSONResponse(body, status_code=200 if available else 503)
 

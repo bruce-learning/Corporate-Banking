@@ -212,6 +212,11 @@ async def evaluate(args) -> dict:
     orchestrator = BankOrchestrator(
         recognizer, gateway, model, settings.chat_retrieval_top_k,
         settings.context_rewrite_max_messages, metrics_registry, skills,
+        react_enabled=settings.react_enabled,
+        react_max_steps=settings.react_max_steps,
+        react_max_tool_calls=settings.react_max_tool_calls,
+        react_timeout_seconds=settings.react_timeout_seconds,
+        react_max_evidence=settings.react_max_evidence,
     )
     if not await gateway.ready():
         raise RuntimeError("MCP 服务未就绪")
