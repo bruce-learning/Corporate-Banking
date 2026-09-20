@@ -217,56 +217,6 @@ EchoMind-Bank-Agent/
 └── README.md
 ```
 
-## 评测结果
-
-项目包含一套固定种子的 500 条合成全系统评测。最终结果如下：
-
-| 指标 | 结果 | 样本量 |
-|---|---:|---:|
-| 意图识别准确率 | 65.60% | 500 |
-| 检索 Recall@3 | 65.15% | 450 条知识问题 |
-| RAG 回答准确率 | 54.22% | 450 条知识问题 |
-| 端到端回答合格率 | 50.00% | 500 |
-
-直接问法的端到端合格率为 75.56%，困难改写问法为 26.11%。最终运行中执行错误率和系统降级率均为 0，但这不代表回答质量达到生产要求。
-
-这些数据来自虚构知识和模板化合成问题，生成模型和 LLM-as-Judge 都使用 `qwen-plus`，不能外推为真实客户环境效果，也不能替代银行业务人员盲评。
-
-详细结果见：
-
-- `evaluation/reports/full-system-eval-v1.md`
-- `evaluation/reports/full-system-eval-v1.html`
-- `evaluation/reports/full-system-eval-v1.json`
-- `evaluation/human_review/full-system-eval-v1-blind-100.jsonl`
-
-## 测试
-
-```bash
-python -m pytest -q
-```
-
-当前版本自动化测试结果：`82 passed`。
-
-测试覆盖配置安全、认证、会话、Agent 路由、RAG、MCP、引用、文档导入、Redis/PostgreSQL、Skills、记忆、后台任务、降级契约和 Docker 打包结构。
-
-## 安全边界
-
-- API Key、数据库密码、Redis 密码和管理员密码只允许放在服务器环境或 Secret 文件中。
-- 默认只将 API 映射到宿主机回环地址。
-- PostgreSQL、Redis、ChromaDB 和 MCP 不应暴露到公网。
-- 用户输入包含验证码、密码、口令、账户信息或 Prompt Injection 时进入硬规则拦截。
-- Agent 只能调用只读知识检索工具，不能执行转账、开户、审批或修改银行数据。
-- 上传数据必须经过授权、脱敏、解析预览和管理员发布。
-
-## 当前限制
-
-- 不接入真实银行账户和核心交易系统。
-- 不提供真实人工客服渠道。
-- Docker Compose 是单机部署，不是高可用集群。
-- 合成评测不能代表真实客户语言分布。
-- 公网生产部署仍需增加 TLS、反向代理、审计、备份恢复和监控告警。
-- 部分云平台的受限容器实例不允许嵌套 Docker，需要使用普通云主机或开启相应宿主权限。
-
 ## 相关文档
 
 - `docs/docker-deployment.md`：Docker Compose 部署
