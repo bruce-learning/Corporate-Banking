@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+!.env.docker.example
+!.env.docker.seetacloud.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+var/
+node_modules/
+frontend/dist/
+*.log
+evaluation/cache/
+*.pem
+id_rsa*
+id_ed25519*

@@ -1,0 +1,18 @@
+.conversation-row { display: grid; grid-template-columns: minmax(0, 1fr) 28px; align-items: center; }
+.conversation-item { min-width: 0; }
+.conversation-delete { opacity: 0; border: 0; background: transparent; color: #9db5d1; font-size: 17px; }
+.conversation-row:hover .conversation-delete { opacity: 1; }
+.conversation-delete:hover { color: #fff; }
+
+@media (max-width: 720px) {
+  .login-card {
+    width: calc(100% - 28px);
+    margin: 20px 14px;
+    padding: 28px 24px;
+    border-radius: 22px;
+  }
+
+  .login-card h2 {
+    font-size: 27px;
+  }
+}

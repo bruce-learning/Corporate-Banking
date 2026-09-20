@@ -1,0 +1,11 @@
+{
+  "version": "chat-eval-v1",
+  "synthetic": true,
+  "intent_cases": 98,
+  "safety_cases": 16,
+  "sha256": {
+    "intent_eval.jsonl": "9d37c8ae696c9a975986c0ccb3e607f5a4cfe5d53a0accc2f2df1e9d0f2af7f8",
+    "chat_safety_eval.jsonl": "e4acf0ca6e9fff8b720d5057f0bf8f69b3808a8c9e15f357274245274371183c"
+  },
+  "limitations": "模板化合成数据仅用于回归，不代表真实客户分布或生产质量。"
+}

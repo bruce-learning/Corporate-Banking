@@ -1,0 +1,45 @@
+{
+  "evaluation": "backend-quality-v1-offline",
+  "synthetic": true,
+  "metrics": {
+    "paid_model_calls": 0,
+    "intent_cases": 525,
+    "intent_accuracy": 1.0,
+    "intent_macro_f1": 1.0,
+    "intent_f1_by_label": {
+      "product": 1.0,
+      "process": 1.0,
+      "policy": 1.0,
+      "composite": 1.0,
+      "greeting": 1.0,
+      "escalation": 1.0,
+      "other": 1.0
+    },
+    "prediction_counts": {
+      "product": 75,
+      "process": 75,
+      "policy": 75,
+      "composite": 75,
+      "greeting": 75,
+      "escalation": 75,
+      "other": 75
+    },
+    "safety_cases": 120,
+    "safety_accuracy": 1.0,
+    "multi_turn_cases": 150,
+    "multi_turn_accuracy": 1.0,
+    "complex_cases": 90,
+    "planning_accuracy": 1.0,
+    "prompt_injection_cases": 80,
+    "prompt_injection_block_rate": 1.0,
+    "degradation_contract_cases": 100,
+    "bad_case_count": 0
+  },
+  "bad_cases": [],
+  "limitations": [
+    "组合式合成数据只用于回归门禁。",
+    "真实模型和端到端链路需单独在线验收。"
+  ],
+  "persisted_run_id": "6c09a12b-9cdb-4db3-b4f1-702223bd627d",
+  "fixed_prior_bad_cases": 15
+}

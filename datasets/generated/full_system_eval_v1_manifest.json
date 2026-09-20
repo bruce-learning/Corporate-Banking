@@ -1,0 +1,50 @@
+{
+  "version": "full-system-eval-v1",
+  "seed": 20260920,
+  "synthetic": true,
+  "dataset_sha256": "f96a129ee36832a3d125283f46b8d513a9c1a33ba4fb3f6fc0367ab4403db6c2",
+  "source_knowledge_sha256": "92c4218cff5f7675de21afbf04f68f0c864bde625426028f3515ba49d1747567",
+  "quality_profile": {
+    "rows": 500,
+    "unique_ids": 500,
+    "unique_normalized_queries": 500,
+    "knowledge_eligible": 450,
+    "intent_distribution": {
+      "composite": 90,
+      "escalation": 15,
+      "greeting": 15,
+      "other": 10,
+      "policy": 130,
+      "process": 120,
+      "product": 120
+    },
+    "case_type_distribution": {
+      "composite": 90,
+      "direct": 180,
+      "escalation": 15,
+      "greeting": 15,
+      "other": 10,
+      "paraphrase": 180,
+      "safety": 10
+    },
+    "difficulty_distribution": {
+      "adversarial": 10,
+      "hard": 270,
+      "interaction": 40,
+      "standard": 180
+    },
+    "missing_reference_count": 0,
+    "issues": []
+  },
+  "metric_denominators": {
+    "intent": 500,
+    "retrieval": 450,
+    "rag_answer": 450,
+    "end_to_end": 500
+  },
+  "limitations": [
+    "全部问题由虚构银行知识和确定性模板生成，不代表真实客户语言分布。",
+    "同一知识记录生成两种问法，样本之间并非统计独立。",
+    "安全请求用于端到端规则验证，不参与检索或RAG答案准确率。"
+  ]
+}

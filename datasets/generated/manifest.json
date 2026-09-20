@@ -1,0 +1,35 @@
+{
+  "bank": "海岳银行（虚构）",
+  "counts": {
+    "controls": 60,
+    "knowledge_by_domain": {
+      "policy": 60,
+      "process": 60,
+      "product": 60
+    },
+    "retrieval_by_split": {
+      "dev": 90,
+      "test": 180,
+      "validation": 90
+    }
+  },
+  "data_version": "haiyue-corporate-banking-v2",
+  "files": {
+    "knowledge.jsonl": {
+      "rows": 180,
+      "sha256": "92c4218cff5f7675de21afbf04f68f0c864bde625426028f3515ba49d1747567"
+    },
+    "knowledge_controls.jsonl": {
+      "rows": 60,
+      "sha256": "d7a6dfaecd5153373d4e8a95a890dd30e1a1bd4be44de33ede39e790e238b5b7"
+    },
+    "retrieval_eval.jsonl": {
+      "rows": 360,
+      "sha256": "3f00e44993e603e29dc982d25b3b712447b1e92e10fb04573b5c043750918964"
+    }
+  },
+  "generated_at": "2026-09-19T00:00:00+08:00",
+  "notice": "仅用于演示与自动化评测，不代表真实银行产品、费率、时效或业务承诺。",
+  "seed": 20260919,
+  "synthetic": true
+}

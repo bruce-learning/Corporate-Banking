@@ -1,0 +1,125 @@
+{
+  "evaluation": "answer-judge-v1",
+  "synthetic": true,
+  "metrics": {
+    "cases": 4,
+    "score_means": {
+      "relevance": 1.0,
+      "completeness": 0.9875,
+      "faithfulness": 0.975,
+      "safety": 1.0
+    },
+    "citation_valid_rate": 1.0,
+    "citation_coverage_mean": 1.0,
+    "degraded_rate": 0.0,
+    "generation_model": "qwen-plus",
+    "judge_model": "qwen-plus"
+  },
+  "cases": [
+    {
+      "id": "online-product",
+      "question": "企业网银有哪些功能？",
+      "intent": "product",
+      "execution_mode": "fixed",
+      "degraded": false,
+      "citation_valid": true,
+      "citation_coverage": 1.0,
+      "evidence_ids": [
+        "product-online_banking-features",
+        "product-online_banking-audience",
+        "product-online_banking-limitations",
+        "product-online_banking-overview"
+      ],
+      "scores": {
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "faithfulness": 1.0,
+        "safety": 1.0,
+        "reason": "回答完全覆盖证据中提到的四项核心功能（账户查询、转账、回单、分级授权），并准确反映适用条件、限制与客服边界，所有陈述均有对应资料支持。"
+      },
+      "judge_model": "qwen-plus"
+    },
+    {
+      "id": "online-process",
+      "question": "企业网银怎么办理，需要哪些材料？",
+      "intent": "process",
+      "execution_mode": "fixed",
+      "degraded": false,
+      "citation_valid": true,
+      "citation_coverage": 1.0,
+      "evidence_ids": [
+        "process-online_banking-materials",
+        "process-online_banking-application",
+        "process-online_banking-change_cancel",
+        "process-online_banking-steps"
+      ],
+      "scores": {
+        "relevance": 1.0,
+        "completeness": 0.95,
+        "faithfulness": 1.0,
+        "safety": 1.0,
+        "reason": "回答严格依据三份证据，覆盖材料、步骤、渠道和时效；未添加证据外信息，未虚构流程或要求；对缺失信息（渠道、时效）明确标注‘未载明’并建议咨询，无误导。"
+      },
+      "judge_model": "qwen-plus"
+    },
+    {
+      "id": "online-policy",
+      "question": "不同产品是怎么收费的？",
+      "intent": "policy",
+      "execution_mode": "fixed",
+      "degraded": false,
+      "citation_valid": true,
+      "citation_coverage": 1.0,
+      "evidence_ids": [
+        "policy-working_capital_loan-fees",
+        "policy-host_to_host-fees",
+        "policy-online_banking-fees",
+        "policy-mobile_banking-fees"
+      ],
+      "scores": {
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "faithfulness": 1.0,
+        "safety": 1.0,
+        "reason": "回答覆盖全部四个产品，每项收费均准确引用对应证据中的合成参数，并统一强调‘虚构演示参数’，符合所有资料要求。"
+      },
+      "judge_model": "qwen-plus"
+    },
+    {
+      "id": "online-complex",
+      "question": "请先介绍银企直联功能，再说明收费限制，之后给出开通流程。",
+      "intent": "composite",
+      "execution_mode": "plan_execute",
+      "degraded": false,
+      "citation_valid": true,
+      "citation_coverage": 1.0,
+      "evidence_ids": [
+        "product-host_to_host-limitations",
+        "product-host_to_host-overview",
+        "product-host_to_host-features",
+        "product-host_to_host-prerequisites",
+        "policy-host_to_host-fees",
+        "policy-host_to_host-exceptions",
+        "policy-host_to_host-approval",
+        "policy-host_to_host-effective",
+        "process-host_to_host-steps",
+        "process-host_to_host-application",
+        "process-host_to_host-materials",
+        "process-host_to_host-duration"
+      ],
+      "scores": {
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "faithfulness": 0.9,
+        "safety": 1.0,
+        "reason": "回答严格按问题顺序覆盖功能、收费限制、开通流程；所有关键主张（如演示费虚构性、测试前置要求）均有对应证据支持；仅‘预计时效’中‘10至20个演示工作日’虽有证据，但未在首段收费限制部分同步强调其虚构性，导致faithfulness微降。"
+      },
+      "judge_model": "qwen-plus"
+    }
+  ],
+  "limitations": [
+    "仅4条在线小样本。",
+    "生成模型与Judge相同，存在同模型偏差。",
+    "尚未完成独立人工盲评，不能作为生产质量结论。"
+  ]
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="银行对公智能客服系统演示界面">
+  <title>EchoMind 银行对公智能客服</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/components.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <section id="loginView" class="login-shell">
+    <div class="brand-panel">
+      <div class="brand-mark">EM</div>
+      <p class="eyebrow">ECHOMIND · CORPORATE BANKING</p>
+      <h1>让复杂的对公业务咨询<br>变得清晰、可追踪。</h1>
+      <p class="lead">Product、Process、Policy 多 Agent 协作，结合动态 Skills、RAG 与三层记忆。</p>
+      <div class="feature-strip">
+        <span>只读咨询</span><span>证据引用</span><span>隐私隔离</span><span>可控降级</span>
+      </div>
+    </div>
+    <form id="loginForm" class="login-card">
+      <p class="eyebrow blue">SECURE ACCESS</p>
+      <h2>登录演示系统</h2>
+      <p class="muted">使用服务器中已创建的账户。凭据只发送给当前后端。</p>
+      <label>用户名<input id="username" autocomplete="username" required maxlength="64"></label>
+      <label>密码<input id="password" type="password" autocomplete="current-password" required maxlength="128"></label>
+      <button class="primary full" type="submit">进入工作台 <span>→</span></button>
+      <p id="loginError" class="error" aria-live="assertive"></p>
+      <p class="fineprint">本系统使用合成演示数据，不连接真实银行账户，不执行交易。</p>
+    </form>
+  </section>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand"><div class="brand-mark small">EM</div><div><strong>EchoMind</strong><span>企业金融助手</span></div></div>
+      <button id="newConversation" class="primary full">＋ 新建会话</button>
+      <div class="section-label">最近会话</div>
+      <nav id="conversationList" class="conversation-list" aria-label="会话列表"></nav>
+      <div class="sidebar-foot">
+        <div id="userBadge" class="user-badge"></div>
+        <button id="logout" class="ghost">退出登录</button>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div><p class="eyebrow blue">BANKING INTELLIGENCE</p><h2 id="conversationTitle">对公业务咨询</h2></div>
+        <div class="status-group"><span id="systemStatus" class="status-dot">检测中</span><button id="openMemory" class="soft">记忆中心</button><button id="openAdmin" class="soft hidden">管理中心</button></div>
+      </header>
+      <section id="chatPanel" class="chat-panel">
+        <div id="welcome" class="welcome-card">
+          <span class="orb">✦</span><h3>今天想了解哪项对公业务？</h3>
+          <p>我可以协助查询产品功能、办理流程、收费政策与安全边界。</p>
+          <div class="suggestions">
+            <button data-question="企业网银有哪些功能，适合什么企业？">企业网银功能</button>
+            <button data-question="开立对公基本账户需要哪些材料和步骤？">开户材料与流程</button>
+            <button data-question="不同对公产品是怎么收费的？">收费政策</button>
+            <button data-question="请先介绍企业网银功能，再说明收费限制和办理步骤。">复杂组合咨询</button>
+          </div>
+        </div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+      </section>
+      <form id="composer" class="composer">
+        <textarea id="messageInput" rows="1" maxlength="2000" placeholder="输入对公业务问题，Shift + Enter 换行"></textarea>
+        <button id="sendButton" class="send" type="submit" aria-label="发送">↑</button>
+        <div class="composer-note">回答仅供演示，请以银行最新公示、签约文件和人工审核为准。</div>
+      </form>
+    </main>
+
+    <aside id="detailPanel" class="detail-panel">
+      <div class="detail-head"><div><p class="eyebrow blue">TRACE</p><h3>回答追踪</h3></div><button id="closeDetail" class="icon">×</button></div>
+      <div id="traceEmpty" class="empty-state">发送问题后，可在这里查看 Agent、Skill、工具调用和引用证据。</div>
+      <div id="traceContent" class="hidden"></div>
+    </aside>
+  </div>
+
+  <dialog id="memoryDialog" class="modal">
+    <div class="modal-head"><div><p class="eyebrow blue">PERSONAL MEMORY</p><h2>记忆中心</h2></div><button data-close="memoryDialog" class="icon">×</button></div>
+    <p class="muted">只展示当前登录用户的数据。你可以禁用、修改或删除用户画像，也可以删除历史摘要。</p>
+    <div class="tabs"><button class="tab active" data-memory-tab="profiles">用户画像</button><button class="tab" data-memory-tab="summaries">历史摘要</button></div>
+    <div id="memoryList" class="memory-list"></div>
+    <div class="modal-actions"><button id="deleteAllMemory" class="danger ghost">删除全部长期记忆</button><button id="refreshMemory" class="soft">刷新</button></div>
+  </dialog>
+
+  <dialog id="adminDialog" class="modal wide">
+    <div class="modal-head"><div><p class="eyebrow blue">OPERATIONS</p><h2>管理中心</h2></div><button data-close="adminDialog" class="icon">×</button></div>
+    <div class="admin-grid">
+      <section class="admin-card"><div class="card-title"><h3>动态 Skills</h3><button id="reloadSkills" class="soft">热加载</button></div><div id="skillList"></div></section>
+      <section class="admin-card"><div class="card-title"><h3>后台任务</h3><button id="refreshJobs" class="soft">刷新</button></div><div id="jobList"></div></section>
+      <section class="admin-card full-span"><h3>文档异步导入</h3><form id="uploadForm" class="upload-form"><select id="uploadDomain"><option value="product">产品</option><option value="process">流程</option><option value="policy">政策</option></select><input id="uploadProduct" placeholder="产品名称（可选）"><label class="file-button">选择文档<input id="uploadFile" type="file" accept=".json,.jsonl,.txt,.md,.docx,.pdf,.xlsx,.xls" required></label><label class="check"><input id="autoPublish" type="checkbox">解析后自动发布</label><button class="primary" type="submit">提交任务</button></form><p class="fineprint">扫描PDF由外部Worker执行OCR；OCR结果不会绕过文档治理流程。</p></section>
+    </div>
+  </dialog>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

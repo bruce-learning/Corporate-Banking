@@ -1,0 +1,35 @@
+{
+  "evaluation": "chat-mvp-v1-offline",
+  "synthetic": true,
+  "paid_model_calls": 0,
+  "intent_cases": 98,
+  "intent_accuracy": 1.0,
+  "intent_macro_f1": 1.0,
+  "intent_f1_by_label": {
+    "product": 1.0,
+    "process": 1.0,
+    "policy": 1.0,
+    "composite": 1.0,
+    "greeting": 1.0,
+    "escalation": 1.0,
+    "other": 1.0
+  },
+  "intent_failures": [],
+  "prediction_counts": {
+    "product": 14,
+    "process": 14,
+    "policy": 14,
+    "composite": 14,
+    "greeting": 14,
+    "escalation": 14,
+    "other": 14
+  },
+  "safety_cases": 16,
+  "safety_rule_accuracy": 1.0,
+  "safety_failures": [],
+  "credential_redaction_failures": [],
+  "limitations": [
+    "模板化合成集不代表真实客户问题分布。",
+    "本报告只评估确定性意图和安全层；真实阿里云、MCP、Chroma 链路另做在线冒烟。"
+  ]
+}

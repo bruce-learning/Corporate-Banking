@@ -1,0 +1,18 @@
+{
+  "data-root": "/root/autodl-tmp/docker-data-vfs",
+  "bridge": "none",
+  "iptables": false,
+  "ip6tables": false,
+  "storage-driver": "vfs",
+  "features": {
+    "containerd-snapshotter": false
+  },
+  "registry-mirrors": [
+    "https://docker.m.daocloud.io"
+  ],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}

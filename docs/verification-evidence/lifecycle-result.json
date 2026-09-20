@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "checks": [
+    "real_api_restart_preserves_auth_and_messages",
+    "real_redis_outage_refuses_unprotected_login_and_delete_then_recovers",
+    "real_postgresql_outage_and_restart_preserve_data",
+    "real_tcp_delete_completed"
+  ],
+  "paid_calls": 0
+}

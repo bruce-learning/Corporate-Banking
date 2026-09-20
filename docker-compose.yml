@@ -1,0 +1,178 @@
+x-bank-app: &bank-app
+  image: echomind-bank:0.9.0
+  build:
+    context: .
+    dockerfile: Dockerfile
+  env_file:
+    - .env.docker
+  networks:
+    - bank_backend
+  init: true
+
+services:
+  postgres:
+    image: postgres:14-bookworm
+    env_file:
+      - .env.docker
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - bank_backend
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  redis:
+    image: redis:7.2-alpine
+    env_file:
+      - .env.docker
+    command:
+      - sh
+      - -c
+      - exec redis-server --appendonly yes --appendfsync everysec --maxmemory-policy noeviction --requirepass "$$REDIS_PASSWORD"
+    volumes:
+      - redis_data:/data
+    networks:
+      - bank_backend
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --no-auth-warning -a \"$$REDIS_PASSWORD\" ping | grep -q PONG"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 5s
+
+  chroma:
+    <<: *bank-app
+    command: ["chroma", "run", "--path", "/chroma", "--host", "0.0.0.0", "--port", "8001"]
+    volumes:
+      - chroma_data:/chroma
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; s=socket.create_connection(('127.0.0.1',8001),2); s.close()"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 15s
+
+  migrate:
+    <<: *bank-app
+    command: ["python", "-m", "alembic", "-c", "alembic.ini", "upgrade", "head"]
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  init-admin:
+    <<: *bank-app
+    command: ["python", "scripts/container_init.py"]
+    environment:
+      INITIAL_ADMIN_PASSWORD_FILE: /run/secrets/admin_password
+    secrets:
+      - admin_password
+    restart: "no"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  mcp:
+    <<: *bank-app
+    command: ["python", "scripts/run_mcp.py"]
+    expose:
+      - "8002"
+    restart: unless-stopped
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      chroma:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; s=socket.create_connection(('127.0.0.1',8002),2); s.close()"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  worker:
+    <<: *bank-app
+    command: ["python", "scripts/run_worker.py"]
+    volumes:
+      - app_data:/app/var/data
+    restart: unless-stopped
+    depends_on:
+      init-admin:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      chroma:
+        condition: service_healthy
+
+  api:
+    <<: *bank-app
+    command: ["python", "scripts/run_api.py"]
+    volumes:
+      - app_data:/app/var/data
+    ports:
+      - "127.0.0.1:${DOCKER_APP_PORT:-18000}:8000"
+    restart: unless-stopped
+    depends_on:
+      init-admin:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      chroma:
+        condition: service_healthy
+      mcp:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health',timeout=3).read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+
+  bootstrap-knowledge:
+    <<: *bank-app
+    profiles: ["bootstrap"]
+    command: ["python", "scripts/bootstrap_knowledge.py", "--confirm-paid-call"]
+    restart: "no"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      chroma:
+        condition: service_healthy
+
+  runtime-check:
+    <<: *bank-app
+    profiles: ["tools"]
+    command: ["python", "scripts/check_compose_runtime.py"]
+    restart: "no"
+    depends_on:
+      api:
+        condition: service_healthy
+
+networks:
+  bank_backend:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  chroma_data:
+  app_data:
+
+secrets:
+  admin_password:
+    file: ./var/secrets/docker-admin-initial-password

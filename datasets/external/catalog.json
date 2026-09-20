@@ -1,0 +1,27 @@
+{
+  "status": "catalog_only_not_downloaded",
+  "policy": "外部数据必须锁定版本、复核原始许可证并进入 approved 后才能用于实验；不得作为银行收费或办理政策事实。",
+  "candidates": [
+    {
+      "name": "FinQA",
+      "source": "https://huggingface.co/datasets/ibm-research/finqa",
+      "proposed_use": ["table_reasoning", "evaluation_format"],
+      "knowledge_authority": false,
+      "review_status": "license_review_required"
+    },
+    {
+      "name": "PIXIU",
+      "source": "https://github.com/The-FinAI/PIXIU",
+      "proposed_use": ["financial_intent", "query_style"],
+      "knowledge_authority": false,
+      "review_status": "component_license_review_required"
+    },
+    {
+      "name": "ICE-PIXIU",
+      "source": "https://github.com/YY0649/ICE-PIXIU",
+      "proposed_use": ["chinese_financial_language", "query_paraphrase"],
+      "knowledge_authority": false,
+      "review_status": "component_license_review_required"
+    }
+  ]
+}

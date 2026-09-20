@@ -1,0 +1,13 @@
+[project]
+name = "bank-customer-service"
+version = "0.1.0"
+description = "EchoMind 银行对公客服结合版，当前为基础阶段"
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

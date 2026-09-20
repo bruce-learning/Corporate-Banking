@@ -1,0 +1,24 @@
+{
+  "version": "backend-quality-v1",
+  "synthetic": true,
+  "counts": {
+    "intent.jsonl": 525,
+    "safety.jsonl": 120,
+    "multi_turn.jsonl": 150,
+    "complex.jsonl": 90,
+    "degradation.jsonl": 100,
+    "prompt_injection.jsonl": 80
+  },
+  "sha256": {
+    "intent.jsonl": "80a3a10168b7413ce763b08181f4650b0bfde967f9f4c4ca53b2ce059c29dcc5",
+    "safety.jsonl": "03507c8fc4058f57a9cf61dcbb2e80083b469476080491c4fd8f5a633385254c",
+    "multi_turn.jsonl": "1ead84fddb945704e1bb0eb774bff44946f262b965a37d004597fe2ca888552c",
+    "complex.jsonl": "82b02052bcf348e8dca21d179bf65b0b613f120f1f28304b630e7627489c513d",
+    "degradation.jsonl": "502e48f797caa74de2aafadaf83c71faa45b7dc4a6f3cb5f36c58d9cd475ef01",
+    "prompt_injection.jsonl": "bf9cdd719fcc69378f4d04ad01df34fe1cca5f8c1219a48c181ff6f17e1fd8a6"
+  },
+  "limitations": [
+    "组合式合成数据用于回归门禁，不代表真实客户分布。",
+    "未包含真实银行账户或交易数据。"
+  ]
+}

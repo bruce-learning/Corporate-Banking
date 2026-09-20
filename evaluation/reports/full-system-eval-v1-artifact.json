@@ -1,0 +1,235 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "银行对公智能客服：500 条全系统评测报告",
+    "description": "基于 500 条确定性合成样本，对意图识别、混合检索、RAG 回答与端到端质量门禁进行可复现评测。",
+    "generatedAt": "2026-09-20T09:09:42.501085+00:00",
+    "sources": [
+      {
+        "id": "eval",
+        "label": "full-system-eval-v1 机器可读结果",
+        "path": "evaluation/reports/full-system-eval-v1.json",
+        "query": {
+          "engine": "Python 评测脚本 + 真实系统调用",
+          "description": "远程项目服务器上生成的最终评测结果",
+          "executed_at": "2026-09-20T09:09:42.501085+00:00",
+          "metric_definitions": [
+            "意图识别准确率：500 条样本中预测意图与期望意图一致的比例。",
+            "检索召回率 Recall@3：450 条知识型问题中，期望文档在各领域 Top 3 检索结果中的平均覆盖率。",
+            "RAG 回答准确率：450 条知识型问题中，LLM-as-Judge 的正确性、完整性、忠实性和安全性同时达到阈值的比例。",
+            "端到端回答合格率：知识型问题需同时通过意图、检索、RAG、引用和无降级门禁；交互与安全问题按对应响应契约判定。"
+          ]
+        }
+      },
+      {
+        "id": "dataset",
+        "label": "500 条合成评测集",
+        "path": "datasets/generated/full_system_eval_v1.jsonl",
+        "query": {
+          "engine": "确定性 Python 生成器",
+          "description": "随机种子 20260920；SHA-256 f96a129ee36832a3d125283f46b8d513a9c1a33ba4fb3f6fc0367ab4403db6c2"
+        }
+      },
+      {
+        "id": "headline_sql",
+        "label": "核心指标可复现查询",
+        "path": "evaluation/reports/full-system-eval-v1.json",
+        "query": {
+          "engine": "SQLite",
+          "sql": "SELECT 0.656 AS intent, 0.651481 AS retrieval, 0.542222 AS rag, 0.5 AS e2e;",
+          "description": "从最终 JSON 结果核对后固化的指标行"
+        }
+      },
+      {
+        "id": "stability_sql",
+        "label": "稳定性指标可复现查询",
+        "path": "evaluation/reports/full-system-eval-v1.json",
+        "query": {
+          "engine": "SQLite",
+          "sql": "SELECT 0.0 AS error_rate, 0.0 AS degraded_rate, 1.0 AS citation_valid, 8484.94 AS latency_ms;",
+          "description": "从最终 JSON 结果核对后固化的稳定性指标行"
+        }
+      },
+      {
+        "id": "overall_sql",
+        "label": "核心指标图表可复现查询",
+        "path": "evaluation/reports/full-system-eval-v1.json",
+        "query": {
+          "engine": "SQLite",
+          "sql": "SELECT '意图识别准确率' AS metric, 0.656 AS rate, 500 AS cases UNION ALL SELECT '检索召回率@3', 0.651481, 450 UNION ALL SELECT 'RAG 回答准确率', 0.542222, 450 UNION ALL SELECT '端到端回答合格率', 0.5, 500;",
+          "description": "从最终 JSON 结果核对后固化的四项指标"
+        }
+      },
+      {
+        "id": "case_types_sql",
+        "label": "题型拆分可复现查询",
+        "path": "evaluation/reports/full-system-eval-v1.json",
+        "query": {
+          "engine": "SQLite",
+          "sql": "SELECT '直接问法' AS case_type, 180 AS cases, 0.933333 AS intent, 0.927778 AS retrieval, 0.8 AS rag, 0.755556 AS e2e UNION ALL SELECT '困难改写', 180, 0.333333, 0.322222, 0.266667, 0.261111 UNION ALL SELECT '跨领域复合', 90, 0.666667, 0.757407, 0.577778, 0.3 UNION ALL SELECT '问候', 15, 0.866667, NULL, NULL, 0.866667 UNION ALL SELECT '转人工', 15, 0.6, NULL, NULL, 0.6 UNION ALL SELECT '闲聊/其他', 10, 1.0, NULL, NULL, 1.0 UNION ALL SELECT '安全边界', 10, 0.8, NULL, NULL, 0.8;",
+          "description": "从最终 JSON 结果核对后固化的题型拆分"
+        }
+      }
+    ],
+    "cards": [
+      {
+        "id": "headline",
+        "description": "四项核心质量指标；括号中的样本量分别为 500、450、450、500。",
+        "dataset": "headline",
+        "sourceId": "headline_sql",
+        "metrics": [
+          {"label": "意图识别准确率", "field": "intent", "format": "percent"},
+          {"label": "检索召回率@3", "field": "retrieval", "format": "percent"},
+          {"label": "RAG 回答准确率", "field": "rag", "format": "percent"},
+          {"label": "端到端回答合格率", "field": "e2e", "format": "percent"}
+        ]
+      },
+      {
+        "id": "stability",
+        "description": "稳定性和引用指标。零错误不等于回答质量达标。",
+        "dataset": "stability",
+        "sourceId": "stability_sql",
+        "metrics": [
+          {"label": "执行错误率", "field": "error_rate", "format": "percent"},
+          {"label": "降级率", "field": "degraded_rate", "format": "percent"},
+          {"label": "引用有效率", "field": "citation_valid", "format": "percent"},
+          {"label": "平均延迟", "field": "latency_ms", "format": "number"}
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "quality-gates",
+        "title": "四项核心质量门禁",
+        "subtitle": "意图和端到端基于 500 条；检索与 RAG 基于 450 条知识型问题",
+        "showDescription": true,
+        "intent": "comparison",
+        "question": "当前系统的主要质量瓶颈位于哪一层？",
+        "rationale": "横向比较四个通过率，能够直接识别从意图到端到端链路的损失。",
+        "type": "horizontalBar",
+        "dataset": "overall_metrics",
+        "sourceId": "overall_sql",
+        "encodings": {
+          "x": {"field": "metric", "type": "nominal", "label": "评测指标"},
+          "y": {"field": "rate", "type": "quantitative", "format": "percent", "label": "通过率"},
+          "tooltip": [
+            {"field": "rate", "type": "quantitative", "format": "percent", "label": "结果"},
+            {"field": "cases", "type": "quantitative", "format": "number", "label": "样本量"}
+          ]
+        },
+        "valueFormat": "percent",
+        "layout": "full",
+        "maxRows": 4
+      }
+    ],
+    "tables": [
+      {
+        "id": "case-types",
+        "title": "按题型拆分的表现",
+        "subtitle": "空值表示该题型不参与知识检索与 RAG 评分",
+        "showDescription": true,
+        "dataset": "case_types",
+        "sourceId": "case_types_sql",
+        "defaultSort": {"field": "e2e", "direction": "desc"},
+        "density": "spacious",
+        "layout": "full",
+        "columns": [
+          {"field": "case_type", "label": "题型", "type": "text"},
+          {"field": "cases", "label": "样本量", "format": "number"},
+          {"field": "intent", "label": "意图准确率", "format": "percent"},
+          {"field": "retrieval", "label": "Recall@3", "format": "percent"},
+          {"field": "rag", "label": "RAG 准确率", "format": "percent"},
+          {"field": "e2e", "label": "端到端合格率", "format": "percent"}
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "summary-heading",
+        "type": "markdown",
+        "body": "## 技术摘要\n\n本次评测已完整执行 500 条合成测试，不是抽样试跑。系统调用真实的 `qwen-plus`、`text-embedding-v4`、ChromaDB 混合检索和标准 MCP 链路；最终运行中执行错误与降级均为 0。质量结论仍然明确：系统可稳定运行，但当前端到端合格率只有 50.00%，尚不适合作为生产效果承诺。",
+        "sourceId": "eval"
+      },
+      {"id": "headline-block", "type": "metric-strip", "cardIds": ["headline"], "sourceId": "eval"},
+      {
+        "id": "finding-heading",
+        "type": "markdown",
+        "body": "## 关键发现与可视证据\n\n质量损失不是由服务崩溃或模型降级造成，而集中在语义泛化：直接问法端到端合格率为 75.56%，困难改写问法仅为 26.11%。因此，优先级最高的工作是修复产品类意图和改写问法的检索覆盖，而不是先扩大基础设施。",
+        "sourceId": "eval"
+      },
+      {"id": "quality-chart-block", "type": "chart", "chartId": "quality-gates", "sourceId": "eval"},
+      {
+        "id": "chart-interpretation",
+        "type": "markdown",
+        "body": "图中意图准确率与检索召回率约为 65%，但 RAG 回答准确率降至 54.22%，最终端到端门禁进一步降至 50.00%。在 450 条知识型问题中，有 147 条同时出现检索不完整和 RAG 不合格；另有 59 条检索完整但答案仍未通过 Judge，说明检索与生成两层都需要单独修复。",
+        "sourceId": "eval"
+      },
+      {"id": "case-table-block", "type": "table", "tableId": "case-types", "sourceId": "eval"},
+      {
+        "id": "scope",
+        "type": "markdown",
+        "body": "## 范围、数据与指标定义\n\n评测集由确定性生成器创建，随机种子为 `20260920`，共 500 条且 ID 与归一化问题均不重复。题型包括 180 条直接问法、180 条困难改写、90 条跨领域复合问题，以及问候、转人工、闲聊和安全边界问题。450 条知识型问题参与检索与 RAG 评分；全部 500 条参与意图与端到端评分。\n\n- **意图识别准确率**：预测意图严格等于期望意图。\n- **检索召回率 Recall@3**：每个领域 Top 3 结果对期望文档的平均覆盖率。\n- **RAG 回答准确率**：`qwen-plus` Judge 的正确性 ≥ 0.8、完整性 ≥ 0.7、忠实性 ≥ 0.8、安全性 ≥ 0.8。\n- **端到端回答合格率**：知识型问题必须同时通过意图、完整检索、RAG、引用和无降级门禁；交互与安全问题按各自响应契约判断。",
+        "sourceId": "dataset"
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "body": "## 方法\n\n评测脚本直接执行后端核心编排链路：输入校验 → 三路意图融合 → Agent 路由 → 标准 MCP 调用 → ChromaDB/BM25 混合检索 → `qwen-plus` 生成 → 引用校验 → LLM-as-Judge。为避免污染会话数据，本轮不经 HTTP 鉴权、会话持久化和异步记忆写入；这些接口由项目测试单独覆盖。评测支持断点续跑，并将 Judge 超时样本单独重试；最终 450 条 Judge 记录均有效。",
+        "sourceId": "eval"
+      },
+      {"id": "stability-block", "type": "metric-strip", "cardIds": ["stability"], "sourceId": "eval"},
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## 限制与稳健性\n\n1. 数据来自虚构银行知识和模板化生成，不代表真实客户语言分布。\n2. 同一知识记录会生成直接问法和改写问法，样本之间并非统计独立。\n3. 生成模型与 Judge 同为 `qwen-plus`，存在同模型偏差。\n4. RAG 结果尚未经过银行业务人员盲评；已输出 100 条盲评包供后续复核。\n5. Wilson 95% 区间只描述这批固定合成样本的二项不确定性，不是生产人群置信区间。\n6. 本轮核心链路评测不等同于 HTTP、鉴权、会话、Redis 工作记忆、ChromaDB 长期记忆和异步任务的联合压测。",
+        "sourceId": "eval"
+      },
+      {
+        "id": "recommendations",
+        "type": "markdown",
+        "body": "## 建议\n\n1. **先修产品类与困难改写意图**：产品意图准确率仅 40%，困难改写整体仅 33.33%；扩充同义表达、加入领域先验，并分析 `other` 误判。\n2. **提升改写检索召回**：困难改写 Recall@3 仅 32.22%；校准向量/BM25 权重、查询改写、领域过滤和 rerank。\n3. **拆分检索与生成回归集**：对 147 条检索与回答同时失败、59 条仅回答失败的样本分别建回归标签。\n4. **引入人工盲评**：由银行业务人员复核输出的 100 条盲评包，并将分歧样本纳入 Bad Case。\n5. **达到发布门槛后再压测**：建议下一轮门槛至少为意图 ≥ 85%、Recall@3 ≥ 85%、RAG ≥ 80%、端到端 ≥ 75%，并另行做并发与故障注入测试。",
+        "sourceId": "eval"
+      },
+      {
+        "id": "questions",
+        "type": "markdown",
+        "body": "## 后续需要回答的问题\n\n- 产品类问题为何大量被路由为 `other`：是阈值、关键词还是模型提示词导致？\n- 低召回主要来自向量距离、BM25 分词、领域过滤还是知识分块？\n- 在独立模型 Judge 与银行人工盲评下，54.22% 的 RAG 准确率会如何变化？\n- Redis/ChromaDB 分层记忆加入后，跨轮问题是否提升质量，还是引入旧记忆污染？"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-09-20T09:09:42.501085+00:00",
+    "status": "ready",
+    "accessIssues": [],
+    "datasets": {
+      "headline": [
+        {"intent": 0.656, "retrieval": 0.651481, "rag": 0.542222, "e2e": 0.5}
+      ],
+      "stability": [
+        {"error_rate": 0.0, "degraded_rate": 0.0, "citation_valid": 1.0, "latency_ms": 8484.94}
+      ],
+      "overall_metrics": [
+        {"metric": "意图识别准确率", "rate": 0.656, "cases": 500},
+        {"metric": "检索召回率@3", "rate": 0.651481, "cases": 450},
+        {"metric": "RAG 回答准确率", "rate": 0.542222, "cases": 450},
+        {"metric": "端到端回答合格率", "rate": 0.5, "cases": 500}
+      ],
+      "case_types": [
+        {"case_type": "直接问法", "cases": 180, "intent": 0.933333, "retrieval": 0.927778, "rag": 0.8, "e2e": 0.755556},
+        {"case_type": "困难改写", "cases": 180, "intent": 0.333333, "retrieval": 0.322222, "rag": 0.266667, "e2e": 0.261111},
+        {"case_type": "跨领域复合", "cases": 90, "intent": 0.666667, "retrieval": 0.757407, "rag": 0.577778, "e2e": 0.3},
+        {"case_type": "问候", "cases": 15, "intent": 0.866667, "retrieval": null, "rag": null, "e2e": 0.866667},
+        {"case_type": "转人工", "cases": 15, "intent": 0.6, "retrieval": null, "rag": null, "e2e": 0.6},
+        {"case_type": "闲聊/其他", "cases": 10, "intent": 1.0, "retrieval": null, "rag": null, "e2e": 1.0},
+        {"case_type": "安全边界", "cases": 10, "intent": 0.8, "retrieval": null, "rag": null, "e2e": 0.8}
+      ]
+    }
+  },
+  "sources": [
+    {"id": "eval", "label": "full-system-eval-v1 机器可读结果", "path": "evaluation/reports/full-system-eval-v1.json"},
+    {"id": "dataset", "label": "500 条合成评测集", "path": "datasets/generated/full_system_eval_v1.jsonl"}
+  ]
+}

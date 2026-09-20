@@ -1,0 +1,5810 @@
+{
+  "report_version": "retrieval-v2",
+  "data_version": "haiyue-corporate-banking-v2",
+  "mode": "bm25",
+  "embedding_model": "text-embedding-v4",
+  "embedding_dimension": 1024,
+  "query_embedding_requests": 0,
+  "query_vectors_reused": false,
+  "overall": {
+    "cases": 360,
+    "recall_at_3": 0.975,
+    "mrr_at_3": 0.860648
+  },
+  "groups": {
+    "domain:policy": {
+      "cases": 120,
+      "recall_at_3": 0.991667,
+      "mrr_at_3": 0.883333
+    },
+    "domain:process": {
+      "cases": 120,
+      "recall_at_3": 0.933333,
+      "mrr_at_3": 0.827778
+    },
+    "domain:product": {
+      "cases": 120,
+      "recall_at_3": 1.0,
+      "mrr_at_3": 0.870833
+    },
+    "split:dev": {
+      "cases": 90,
+      "recall_at_3": 0.977778,
+      "mrr_at_3": 0.87037
+    },
+    "split:test": {
+      "cases": 180,
+      "recall_at_3": 0.977778,
+      "mrr_at_3": 0.85463
+    },
+    "split:validation": {
+      "cases": 90,
+      "recall_at_3": 0.966667,
+      "mrr_at_3": 0.862963
+    }
+  },
+  "eligible_candidates": 180,
+  "control_leakage": [],
+  "details": [
+    {
+      "id": "q-product-basic_account-overview-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-overview"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-overview",
+        "product-basic_account-audience",
+        "product-basic_account-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-overview-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-overview"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-overview",
+        "product-basic_account-limitations",
+        "product-basic_account-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-audience-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-audience"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-audience",
+        "product-basic_account-overview",
+        "product-basic_account-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-audience-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-audience"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-audience",
+        "product-basic_account-features",
+        "product-basic_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-features-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-features"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-features",
+        "product-basic_account-limitations",
+        "product-basic_account-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-features-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-features"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-features",
+        "product-basic_account-overview",
+        "product-basic_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-prerequisites-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-prerequisites",
+        "product-basic_account-overview",
+        "product-general_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-prerequisites-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-audience",
+        "product-basic_account-prerequisites",
+        "product-basic_account-limitations"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-limitations-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-limitations"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-audience",
+        "product-basic_account-limitations",
+        "product-basic_account-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-basic_account-limitations-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-basic_account-limitations"
+      ],
+      "retrieved_ids": [
+        "product-basic_account-limitations",
+        "product-basic_account-features",
+        "product-basic_account-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-application-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-application"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-application",
+        "process-basic_account-change_cancel",
+        "process-basic_account-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-application-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-application"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-application",
+        "process-basic_account-materials",
+        "process-basic_account-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-materials-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-materials"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-change_cancel",
+        "process-basic_account-application",
+        "process-basic_account-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-materials-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-materials"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-application",
+        "process-basic_account-materials",
+        "process-basic_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-steps-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-steps"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-steps",
+        "process-basic_account-application",
+        "process-basic_account-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-steps-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-steps"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-steps",
+        "process-basic_account-application",
+        "process-basic_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-duration-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-duration"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-duration",
+        "process-basic_account-application",
+        "process-basic_account-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-duration-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-duration"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-duration",
+        "process-basic_account-application",
+        "process-basic_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-change_cancel-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-change_cancel",
+        "process-basic_account-steps",
+        "process-basic_account-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-basic_account-change_cancel-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-basic_account-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-basic_account-change_cancel",
+        "process-basic_account-steps",
+        "process-basic_account-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-fees-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-fees"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-fees",
+        "policy-basic_account-effective",
+        "policy-basic_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-fees-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-fees"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-fees",
+        "policy-basic_account-effective",
+        "policy-basic_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-effective-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-effective"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-effective",
+        "policy-basic_account-fees",
+        "policy-basic_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-effective-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-effective"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-effective",
+        "policy-general_account-effective",
+        "policy-temporary_account-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-approval-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-approval"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-security",
+        "policy-basic_account-approval",
+        "policy-basic_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-approval-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-approval"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-exceptions",
+        "policy-basic_account-effective",
+        "policy-basic_account-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-security-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-security"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-security",
+        "policy-basic_account-approval",
+        "policy-basic_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-security-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-security"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-security",
+        "policy-basic_account-exceptions",
+        "policy-basic_account-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-exceptions-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-exceptions",
+        "policy-basic_account-approval",
+        "policy-basic_account-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-basic_account-exceptions-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-basic_account-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-basic_account-exceptions",
+        "policy-basic_account-approval",
+        "policy-basic_account-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-overview-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-overview"
+      ],
+      "retrieved_ids": [
+        "product-general_account-overview",
+        "product-general_account-audience",
+        "product-general_account-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-overview-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-overview"
+      ],
+      "retrieved_ids": [
+        "product-general_account-overview",
+        "product-general_account-features",
+        "product-general_account-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-audience-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-audience"
+      ],
+      "retrieved_ids": [
+        "product-general_account-audience",
+        "product-general_account-overview",
+        "product-general_account-limitations"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-audience-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-audience"
+      ],
+      "retrieved_ids": [
+        "product-general_account-audience",
+        "product-general_account-features",
+        "product-general_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-features-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-features"
+      ],
+      "retrieved_ids": [
+        "product-general_account-features",
+        "product-general_account-limitations",
+        "product-general_account-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-features-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-features"
+      ],
+      "retrieved_ids": [
+        "product-general_account-features",
+        "product-general_account-overview",
+        "product-general_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-prerequisites-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-general_account-prerequisites",
+        "product-general_account-overview",
+        "product-general_account-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-prerequisites-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-general_account-audience",
+        "product-general_account-limitations",
+        "product-general_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-limitations-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-limitations"
+      ],
+      "retrieved_ids": [
+        "product-general_account-audience",
+        "product-general_account-limitations",
+        "product-general_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-general_account-limitations-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-general_account-limitations"
+      ],
+      "retrieved_ids": [
+        "product-general_account-limitations",
+        "product-general_account-features",
+        "product-general_account-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-application-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-application"
+      ],
+      "retrieved_ids": [
+        "process-general_account-application",
+        "process-general_account-change_cancel",
+        "process-general_account-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-application-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-application"
+      ],
+      "retrieved_ids": [
+        "process-general_account-application",
+        "process-general_account-materials",
+        "process-general_account-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-materials-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-materials"
+      ],
+      "retrieved_ids": [
+        "process-general_account-application",
+        "process-general_account-change_cancel",
+        "process-general_account-steps"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-materials-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-materials"
+      ],
+      "retrieved_ids": [
+        "process-general_account-application",
+        "process-general_account-materials",
+        "process-general_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-steps-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-steps"
+      ],
+      "retrieved_ids": [
+        "process-general_account-steps",
+        "process-general_account-application",
+        "process-general_account-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-steps-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-steps"
+      ],
+      "retrieved_ids": [
+        "process-general_account-steps",
+        "process-general_account-application",
+        "process-general_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-duration-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-duration"
+      ],
+      "retrieved_ids": [
+        "process-general_account-duration",
+        "process-general_account-application",
+        "process-general_account-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-duration-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-duration"
+      ],
+      "retrieved_ids": [
+        "process-general_account-application",
+        "process-general_account-duration",
+        "process-general_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-change_cancel-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-general_account-change_cancel",
+        "process-general_account-steps",
+        "process-general_account-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-general_account-change_cancel-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-general_account-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-general_account-change_cancel",
+        "process-general_account-steps",
+        "process-general_account-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-fees-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-fees"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-fees",
+        "policy-general_account-effective",
+        "policy-general_account-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-fees-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-fees"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-fees",
+        "policy-general_account-effective",
+        "policy-general_account-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-effective-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-effective"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-effective",
+        "policy-general_account-fees",
+        "policy-general_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-effective-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-effective"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-effective",
+        "policy-basic_account-effective",
+        "policy-temporary_account-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-approval-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-approval"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-security",
+        "policy-general_account-approval",
+        "policy-general_account-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-approval-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-approval"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-effective",
+        "policy-general_account-approval",
+        "policy-general_account-fees"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-security-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-security"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-security",
+        "policy-general_account-approval",
+        "policy-general_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-security-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-security"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-security",
+        "policy-general_account-approval",
+        "policy-general_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-exceptions-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-exceptions",
+        "policy-general_account-approval",
+        "policy-general_account-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-general_account-exceptions-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-general_account-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-general_account-exceptions",
+        "policy-general_account-approval",
+        "policy-general_account-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-overview-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-overview"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-overview",
+        "product-temporary_account-audience",
+        "product-temporary_account-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-overview-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-overview"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-overview",
+        "product-temporary_account-features",
+        "product-temporary_account-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-audience-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-audience"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-audience",
+        "product-temporary_account-overview",
+        "product-temporary_account-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-audience-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-audience"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-audience",
+        "product-temporary_account-features",
+        "product-temporary_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-features-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-features"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-features",
+        "product-temporary_account-limitations",
+        "product-temporary_account-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-features-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-features"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-features",
+        "product-temporary_account-overview",
+        "product-temporary_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-prerequisites-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-prerequisites",
+        "product-temporary_account-overview",
+        "product-temporary_account-limitations"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-prerequisites-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-audience",
+        "product-temporary_account-limitations",
+        "product-temporary_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-limitations-1",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-limitations"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-limitations",
+        "product-temporary_account-audience",
+        "product-temporary_account-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-temporary_account-limitations-2",
+      "split": "dev",
+      "domain": "product",
+      "expected_ids": [
+        "product-temporary_account-limitations"
+      ],
+      "retrieved_ids": [
+        "product-temporary_account-features",
+        "product-temporary_account-limitations",
+        "product-temporary_account-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-application-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-application"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-application",
+        "process-temporary_account-change_cancel",
+        "process-temporary_account-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-application-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-application"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-application",
+        "process-temporary_account-steps",
+        "process-temporary_account-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-materials-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-materials"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-change_cancel",
+        "process-temporary_account-application",
+        "process-temporary_account-steps"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-materials-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-materials"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-application",
+        "process-temporary_account-materials",
+        "process-temporary_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-steps-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-steps"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-steps",
+        "process-temporary_account-application",
+        "process-temporary_account-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-steps-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-steps"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-steps",
+        "process-temporary_account-application",
+        "process-temporary_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-duration-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-duration"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-duration",
+        "process-temporary_account-application",
+        "process-temporary_account-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-duration-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-duration"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-application",
+        "process-temporary_account-duration",
+        "process-temporary_account-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-change_cancel-1",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-change_cancel",
+        "process-temporary_account-steps",
+        "process-temporary_account-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-temporary_account-change_cancel-2",
+      "split": "dev",
+      "domain": "process",
+      "expected_ids": [
+        "process-temporary_account-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-temporary_account-change_cancel",
+        "process-temporary_account-steps",
+        "process-temporary_account-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-fees-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-fees"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-fees",
+        "policy-temporary_account-effective",
+        "policy-temporary_account-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-fees-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-fees"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-fees",
+        "policy-temporary_account-effective",
+        "policy-temporary_account-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-effective-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-effective"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-effective",
+        "policy-temporary_account-fees",
+        "policy-temporary_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-effective-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-effective"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-effective",
+        "policy-basic_account-effective",
+        "policy-general_account-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-approval-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-approval"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-security",
+        "policy-temporary_account-approval",
+        "policy-temporary_account-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-approval-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-approval"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-effective",
+        "policy-temporary_account-approval",
+        "policy-temporary_account-fees"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-security-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-security"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-security",
+        "policy-temporary_account-approval",
+        "policy-temporary_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-security-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-security"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-security",
+        "policy-temporary_account-approval",
+        "policy-temporary_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-exceptions-1",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-exceptions",
+        "policy-temporary_account-approval",
+        "policy-temporary_account-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-temporary_account-exceptions-2",
+      "split": "dev",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-temporary_account-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-temporary_account-exceptions",
+        "policy-temporary_account-approval",
+        "policy-general_account-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-overview-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-overview"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-overview",
+        "product-online_banking-audience",
+        "product-online_banking-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-overview-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-overview"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-overview",
+        "product-online_banking-features",
+        "product-online_banking-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-audience-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-audience"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-audience",
+        "product-online_banking-overview",
+        "product-online_banking-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-audience-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-audience"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-audience",
+        "product-online_banking-features",
+        "product-online_banking-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-features-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-features"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-features",
+        "product-online_banking-limitations",
+        "product-online_banking-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-features-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-features"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-features",
+        "product-online_banking-overview",
+        "product-online_banking-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-prerequisites-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-prerequisites",
+        "product-mobile_banking-prerequisites",
+        "product-online_banking-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-prerequisites-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-audience",
+        "product-online_banking-prerequisites",
+        "product-online_banking-limitations"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-limitations-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-limitations"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-audience",
+        "product-online_banking-limitations",
+        "product-online_banking-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-online_banking-limitations-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-online_banking-limitations"
+      ],
+      "retrieved_ids": [
+        "product-online_banking-features",
+        "product-online_banking-limitations",
+        "product-online_banking-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-application-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-application"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-application",
+        "process-online_banking-change_cancel",
+        "process-online_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-application-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-application"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-application",
+        "process-mobile_banking-application",
+        "process-online_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-materials-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-materials"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-change_cancel",
+        "process-online_banking-application",
+        "process-online_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-materials-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-materials"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-materials",
+        "process-online_banking-application",
+        "process-online_banking-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-steps-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-steps"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-steps",
+        "process-online_banking-application",
+        "process-online_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-steps-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-steps"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-steps",
+        "process-online_banking-application",
+        "process-online_banking-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-duration-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-duration"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-duration",
+        "process-online_banking-application",
+        "process-online_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-duration-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-duration"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-application",
+        "process-online_banking-duration",
+        "process-online_banking-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-change_cancel-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-change_cancel",
+        "process-mobile_banking-change_cancel",
+        "process-payroll-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-online_banking-change_cancel-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-online_banking-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-online_banking-change_cancel",
+        "process-online_banking-steps",
+        "process-online_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-fees-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-fees"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-fees",
+        "policy-online_banking-effective",
+        "policy-online_banking-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-fees-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-fees"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-fees",
+        "policy-online_banking-exceptions",
+        "policy-online_banking-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-effective-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-effective"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-effective",
+        "policy-online_banking-fees",
+        "policy-online_banking-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-effective-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-effective"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-effective",
+        "policy-host_to_host-effective",
+        "policy-mobile_banking-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-approval-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-approval"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-security",
+        "policy-online_banking-approval",
+        "policy-online_banking-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-approval-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-approval"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-effective",
+        "policy-online_banking-approval",
+        "policy-online_banking-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-security-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-security"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-security",
+        "policy-online_banking-approval",
+        "policy-payroll-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-security-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-security"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-security",
+        "policy-payroll-exceptions",
+        "policy-online_banking-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-exceptions-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-exceptions",
+        "policy-online_banking-approval",
+        "policy-online_banking-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-online_banking-exceptions-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-online_banking-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-online_banking-exceptions",
+        "policy-online_banking-approval",
+        "policy-bank_acceptance-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-overview-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-overview"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-overview",
+        "product-mobile_banking-audience",
+        "product-mobile_banking-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-overview-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-overview"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-overview",
+        "product-mobile_banking-features",
+        "product-mobile_banking-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-audience-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-audience"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-audience",
+        "product-mobile_banking-overview",
+        "product-mobile_banking-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-audience-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-audience"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-audience",
+        "product-mobile_banking-features",
+        "product-mobile_banking-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-features-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-features"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-features",
+        "product-mobile_banking-limitations",
+        "product-mobile_banking-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-features-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-features"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-features",
+        "product-mobile_banking-overview",
+        "product-mobile_banking-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-prerequisites-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-prerequisites",
+        "product-mobile_banking-overview",
+        "product-mobile_banking-limitations"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-prerequisites-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-audience",
+        "product-mobile_banking-prerequisites",
+        "product-mobile_banking-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-limitations-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-limitations"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-audience",
+        "product-mobile_banking-limitations",
+        "product-mobile_banking-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-mobile_banking-limitations-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-mobile_banking-limitations"
+      ],
+      "retrieved_ids": [
+        "product-mobile_banking-limitations",
+        "product-mobile_banking-features",
+        "product-mobile_banking-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-application-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-application"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-application",
+        "process-mobile_banking-change_cancel",
+        "process-mobile_banking-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-application-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-application"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-application",
+        "process-mobile_banking-materials",
+        "process-mobile_banking-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-materials-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-materials"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-change_cancel",
+        "process-mobile_banking-application",
+        "process-mobile_banking-steps"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-materials-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-materials"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-application",
+        "process-mobile_banking-materials",
+        "process-mobile_banking-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-steps-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-steps"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-steps",
+        "process-mobile_banking-application",
+        "process-mobile_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-steps-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-steps"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-steps",
+        "process-mobile_banking-application",
+        "process-mobile_banking-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-duration-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-duration"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-duration",
+        "process-mobile_banking-application",
+        "process-mobile_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-duration-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-duration"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-duration",
+        "process-mobile_banking-application",
+        "process-mobile_banking-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-change_cancel-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-change_cancel",
+        "process-mobile_banking-steps",
+        "process-mobile_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-mobile_banking-change_cancel-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-mobile_banking-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-mobile_banking-change_cancel",
+        "process-mobile_banking-steps",
+        "process-mobile_banking-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-fees-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-fees"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-fees",
+        "policy-mobile_banking-effective",
+        "policy-mobile_banking-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-fees-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-fees"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-exceptions",
+        "policy-mobile_banking-fees",
+        "policy-mobile_banking-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-effective-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-effective"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-effective",
+        "policy-mobile_banking-fees",
+        "policy-mobile_banking-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-effective-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-effective"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-effective",
+        "policy-host_to_host-effective",
+        "policy-bank_acceptance-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-approval-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-approval"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-exceptions",
+        "policy-mobile_banking-security",
+        "policy-mobile_banking-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-approval-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-approval"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-effective",
+        "policy-mobile_banking-approval",
+        "policy-mobile_banking-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-security-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-security"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-security",
+        "policy-mobile_banking-approval",
+        "policy-mobile_banking-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-security-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-security"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-security",
+        "policy-mobile_banking-approval",
+        "policy-mobile_banking-fees"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-exceptions-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-exceptions",
+        "policy-mobile_banking-approval",
+        "policy-mobile_banking-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-mobile_banking-exceptions-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-mobile_banking-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-mobile_banking-exceptions",
+        "policy-mobile_banking-approval",
+        "policy-mobile_banking-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-overview-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-overview"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-overview",
+        "product-host_to_host-audience",
+        "product-host_to_host-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-overview-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-overview"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-overview",
+        "product-host_to_host-features",
+        "product-host_to_host-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-audience-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-audience"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-audience",
+        "product-host_to_host-overview",
+        "product-host_to_host-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-audience-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-audience"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-audience",
+        "product-host_to_host-features",
+        "product-host_to_host-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-features-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-features"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-features",
+        "product-host_to_host-limitations",
+        "product-host_to_host-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-features-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-features"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-features",
+        "product-host_to_host-overview",
+        "product-host_to_host-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-prerequisites-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-prerequisites",
+        "product-host_to_host-overview",
+        "product-host_to_host-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-prerequisites-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-audience",
+        "product-host_to_host-prerequisites",
+        "product-host_to_host-limitations"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-limitations-1",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-limitations"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-audience",
+        "product-host_to_host-limitations",
+        "product-host_to_host-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-host_to_host-limitations-2",
+      "split": "validation",
+      "domain": "product",
+      "expected_ids": [
+        "product-host_to_host-limitations"
+      ],
+      "retrieved_ids": [
+        "product-host_to_host-features",
+        "product-host_to_host-limitations",
+        "product-host_to_host-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-application-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-application"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-application",
+        "process-host_to_host-materials",
+        "process-host_to_host-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-application-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-application"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-application",
+        "process-host_to_host-duration",
+        "process-host_to_host-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-materials-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-materials"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-change_cancel",
+        "process-host_to_host-application",
+        "process-host_to_host-steps"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-materials-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-materials"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-materials",
+        "process-host_to_host-application",
+        "process-host_to_host-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-steps-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-steps"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-steps",
+        "process-host_to_host-application",
+        "process-host_to_host-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-steps-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-steps"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-steps",
+        "process-host_to_host-application",
+        "process-host_to_host-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-duration-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-duration"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-duration",
+        "process-host_to_host-application",
+        "process-host_to_host-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-duration-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-duration"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-application",
+        "process-host_to_host-duration",
+        "process-host_to_host-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-change_cancel-1",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-change_cancel",
+        "process-host_to_host-steps",
+        "process-host_to_host-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-host_to_host-change_cancel-2",
+      "split": "validation",
+      "domain": "process",
+      "expected_ids": [
+        "process-host_to_host-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-host_to_host-change_cancel",
+        "process-host_to_host-steps",
+        "process-host_to_host-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-fees-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-fees"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-fees",
+        "policy-host_to_host-effective",
+        "policy-host_to_host-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-fees-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-fees"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-fees",
+        "policy-host_to_host-effective",
+        "policy-host_to_host-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-effective-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-effective"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-effective",
+        "policy-host_to_host-fees",
+        "policy-host_to_host-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-effective-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-effective"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-effective",
+        "policy-online_banking-effective",
+        "policy-bank_acceptance-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-approval-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-approval"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-security",
+        "policy-host_to_host-approval",
+        "policy-host_to_host-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-approval-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-approval"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-exceptions",
+        "policy-host_to_host-fees",
+        "policy-host_to_host-effective"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-security-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-security"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-security",
+        "policy-host_to_host-approval",
+        "policy-host_to_host-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-security-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-security"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-security",
+        "policy-host_to_host-approval",
+        "policy-host_to_host-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-exceptions-1",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-exceptions",
+        "policy-host_to_host-approval",
+        "policy-host_to_host-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-host_to_host-exceptions-2",
+      "split": "validation",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-host_to_host-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-host_to_host-exceptions",
+        "policy-host_to_host-approval",
+        "policy-host_to_host-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-overview-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-overview"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-overview",
+        "product-intrabank_transfer-audience",
+        "product-intrabank_transfer-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-overview-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-overview"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-overview",
+        "product-intrabank_transfer-features",
+        "product-intrabank_transfer-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-audience-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-audience"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-audience",
+        "product-intrabank_transfer-overview",
+        "product-intrabank_transfer-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-audience-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-audience"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-audience",
+        "product-intrabank_transfer-prerequisites",
+        "product-intrabank_transfer-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-features-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-features"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-features",
+        "product-intrabank_transfer-limitations",
+        "product-intrabank_transfer-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-features-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-features"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-features",
+        "product-intrabank_transfer-overview",
+        "product-intrabank_transfer-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-prerequisites-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-prerequisites",
+        "product-intrabank_transfer-overview",
+        "product-interbank_transfer-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-prerequisites-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-audience",
+        "product-intrabank_transfer-prerequisites",
+        "product-intrabank_transfer-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-limitations-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-limitations"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-audience",
+        "product-intrabank_transfer-limitations",
+        "product-intrabank_transfer-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-intrabank_transfer-limitations-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-intrabank_transfer-limitations"
+      ],
+      "retrieved_ids": [
+        "product-intrabank_transfer-features",
+        "product-intrabank_transfer-limitations",
+        "product-intrabank_transfer-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-application-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-application"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-application",
+        "process-intrabank_transfer-change_cancel",
+        "process-intrabank_transfer-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-application-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-application"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-application",
+        "process-intrabank_transfer-duration",
+        "process-intrabank_transfer-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-materials-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-materials"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-change_cancel",
+        "process-intrabank_transfer-application",
+        "process-intrabank_transfer-steps"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-materials-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-materials"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-application",
+        "process-intrabank_transfer-materials",
+        "process-intrabank_transfer-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-steps-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-steps"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-steps",
+        "process-intrabank_transfer-application",
+        "process-intrabank_transfer-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-steps-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-steps"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-steps",
+        "process-intrabank_transfer-application",
+        "process-intrabank_transfer-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-duration-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-duration"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-duration",
+        "process-intrabank_transfer-application",
+        "process-intrabank_transfer-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-duration-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-duration"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-application",
+        "process-intrabank_transfer-duration",
+        "process-intrabank_transfer-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-change_cancel-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-change_cancel",
+        "process-intrabank_transfer-steps",
+        "process-intrabank_transfer-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-intrabank_transfer-change_cancel-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-intrabank_transfer-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-intrabank_transfer-change_cancel",
+        "process-intrabank_transfer-steps",
+        "process-intrabank_transfer-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-fees-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-fees"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-fees",
+        "policy-intrabank_transfer-effective",
+        "policy-intrabank_transfer-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-fees-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-fees"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-fees",
+        "policy-intrabank_transfer-effective",
+        "policy-intrabank_transfer-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-effective-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-effective"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-effective",
+        "policy-intrabank_transfer-fees",
+        "policy-intrabank_transfer-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-effective-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-effective"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-effective",
+        "policy-interbank_transfer-effective",
+        "policy-intrabank_transfer-fees"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-approval-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-approval"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-security",
+        "policy-intrabank_transfer-approval",
+        "policy-intrabank_transfer-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-approval-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-approval"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-effective",
+        "policy-intrabank_transfer-approval",
+        "policy-intrabank_transfer-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-security-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-security"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-security",
+        "policy-intrabank_transfer-approval",
+        "policy-intrabank_transfer-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-security-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-security"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-security",
+        "policy-intrabank_transfer-exceptions",
+        "policy-intrabank_transfer-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-exceptions-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-exceptions",
+        "policy-intrabank_transfer-approval",
+        "policy-interbank_transfer-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-intrabank_transfer-exceptions-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-intrabank_transfer-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-intrabank_transfer-exceptions",
+        "policy-intrabank_transfer-approval",
+        "policy-intrabank_transfer-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-overview-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-overview"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-overview",
+        "product-interbank_transfer-audience",
+        "product-interbank_transfer-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-overview-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-overview"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-overview",
+        "product-interbank_transfer-features",
+        "product-interbank_transfer-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-audience-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-audience"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-audience",
+        "product-interbank_transfer-overview",
+        "product-interbank_transfer-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-audience-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-audience"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-audience",
+        "product-interbank_transfer-features",
+        "product-interbank_transfer-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-features-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-features"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-features",
+        "product-interbank_transfer-limitations",
+        "product-interbank_transfer-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-features-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-features"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-features",
+        "product-interbank_transfer-overview",
+        "product-interbank_transfer-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-prerequisites-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-prerequisites",
+        "product-interbank_transfer-overview",
+        "product-interbank_transfer-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-prerequisites-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-audience",
+        "product-interbank_transfer-prerequisites",
+        "product-interbank_transfer-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-limitations-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-limitations"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-audience",
+        "product-interbank_transfer-limitations",
+        "product-interbank_transfer-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-interbank_transfer-limitations-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-interbank_transfer-limitations"
+      ],
+      "retrieved_ids": [
+        "product-interbank_transfer-features",
+        "product-interbank_transfer-overview",
+        "product-interbank_transfer-limitations"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-application-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-application"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-application",
+        "process-interbank_transfer-change_cancel",
+        "process-interbank_transfer-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-application-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-application"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-application",
+        "process-interbank_transfer-steps",
+        "process-interbank_transfer-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-materials-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-materials"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-change_cancel",
+        "process-interbank_transfer-application",
+        "process-interbank_transfer-steps"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-materials-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-materials"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-application",
+        "process-interbank_transfer-materials",
+        "process-interbank_transfer-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-steps-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-steps"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-steps",
+        "process-interbank_transfer-application",
+        "process-interbank_transfer-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-steps-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-steps"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-steps",
+        "process-interbank_transfer-duration",
+        "process-interbank_transfer-application"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-duration-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-duration"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-duration",
+        "process-interbank_transfer-application",
+        "process-interbank_transfer-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-duration-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-duration"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-application",
+        "process-interbank_transfer-duration",
+        "process-interbank_transfer-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-change_cancel-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-change_cancel",
+        "process-interbank_transfer-steps",
+        "process-interbank_transfer-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-interbank_transfer-change_cancel-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-interbank_transfer-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-interbank_transfer-change_cancel",
+        "process-interbank_transfer-steps",
+        "process-interbank_transfer-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-fees-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-fees"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-fees",
+        "policy-interbank_transfer-effective",
+        "policy-interbank_transfer-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-fees-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-fees"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-fees",
+        "policy-interbank_transfer-effective",
+        "policy-interbank_transfer-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-effective-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-effective"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-effective",
+        "policy-interbank_transfer-fees",
+        "policy-interbank_transfer-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-effective-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-effective"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-effective",
+        "policy-intrabank_transfer-effective",
+        "policy-interbank_transfer-fees"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-approval-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-approval"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-security",
+        "policy-interbank_transfer-approval",
+        "policy-interbank_transfer-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-approval-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-approval"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-effective",
+        "policy-interbank_transfer-approval",
+        "policy-interbank_transfer-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-security-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-security"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-security",
+        "policy-interbank_transfer-approval",
+        "policy-interbank_transfer-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-security-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-security"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-security",
+        "policy-interbank_transfer-approval",
+        "policy-interbank_transfer-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-exceptions-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-exceptions",
+        "policy-interbank_transfer-approval",
+        "policy-interbank_transfer-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-interbank_transfer-exceptions-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-interbank_transfer-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-interbank_transfer-exceptions",
+        "policy-intrabank_transfer-exceptions",
+        "policy-interbank_transfer-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-overview-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-overview"
+      ],
+      "retrieved_ids": [
+        "product-payroll-overview",
+        "product-payroll-audience",
+        "product-payroll-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-overview-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-overview"
+      ],
+      "retrieved_ids": [
+        "product-payroll-overview",
+        "product-payroll-features",
+        "product-payroll-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-audience-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-audience"
+      ],
+      "retrieved_ids": [
+        "product-payroll-audience",
+        "product-payroll-overview",
+        "product-payroll-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-audience-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-audience"
+      ],
+      "retrieved_ids": [
+        "product-payroll-audience",
+        "product-payroll-features",
+        "product-payroll-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-features-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-features"
+      ],
+      "retrieved_ids": [
+        "product-payroll-features",
+        "product-payroll-limitations",
+        "product-payroll-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-features-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-features"
+      ],
+      "retrieved_ids": [
+        "product-payroll-features",
+        "product-payroll-overview",
+        "product-payroll-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-prerequisites-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-payroll-prerequisites",
+        "product-payroll-overview",
+        "product-payroll-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-prerequisites-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-payroll-audience",
+        "product-payroll-prerequisites",
+        "product-payroll-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-limitations-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-limitations"
+      ],
+      "retrieved_ids": [
+        "product-payroll-audience",
+        "product-payroll-limitations",
+        "product-payroll-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-payroll-limitations-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-payroll-limitations"
+      ],
+      "retrieved_ids": [
+        "product-payroll-limitations",
+        "product-payroll-features",
+        "product-payroll-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-application-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-application"
+      ],
+      "retrieved_ids": [
+        "process-payroll-application",
+        "process-payroll-change_cancel",
+        "process-payroll-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-application-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-application"
+      ],
+      "retrieved_ids": [
+        "process-payroll-application",
+        "process-payroll-materials",
+        "process-payroll-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-materials-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-materials"
+      ],
+      "retrieved_ids": [
+        "process-payroll-change_cancel",
+        "process-payroll-application",
+        "process-payroll-steps"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-materials-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-materials"
+      ],
+      "retrieved_ids": [
+        "process-payroll-materials",
+        "process-payroll-application",
+        "process-payroll-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-steps-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-steps"
+      ],
+      "retrieved_ids": [
+        "process-payroll-steps",
+        "process-payroll-application",
+        "process-payroll-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-steps-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-steps"
+      ],
+      "retrieved_ids": [
+        "process-payroll-steps",
+        "process-payroll-application",
+        "process-payroll-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-duration-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-duration"
+      ],
+      "retrieved_ids": [
+        "process-payroll-duration",
+        "process-payroll-application",
+        "process-payroll-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-duration-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-duration"
+      ],
+      "retrieved_ids": [
+        "process-payroll-application",
+        "process-payroll-duration",
+        "process-payroll-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-change_cancel-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-payroll-change_cancel",
+        "process-payroll-steps",
+        "process-payroll-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-payroll-change_cancel-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-payroll-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-payroll-change_cancel",
+        "process-payroll-steps",
+        "process-payroll-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-fees-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-fees"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-fees",
+        "policy-payroll-effective",
+        "policy-payroll-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-fees-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-fees"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-fees",
+        "policy-payroll-effective",
+        "policy-payroll-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-effective-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-effective"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-effective",
+        "policy-payroll-fees",
+        "policy-payroll-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-effective-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-effective"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-effective",
+        "policy-payroll-fees",
+        "policy-payroll-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-approval-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-approval"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-security",
+        "policy-payroll-approval",
+        "policy-payroll-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-approval-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-approval"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-effective",
+        "policy-payroll-approval",
+        "policy-payroll-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-security-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-security"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-security",
+        "policy-payroll-approval",
+        "policy-payroll-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-security-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-security"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-exceptions",
+        "policy-payroll-security",
+        "policy-payroll-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-exceptions-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-exceptions",
+        "policy-payroll-approval",
+        "policy-payroll-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-payroll-exceptions-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-payroll-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-payroll-exceptions",
+        "policy-payroll-approval",
+        "policy-payroll-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-overview-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-overview"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-overview",
+        "product-cash_pool-audience",
+        "product-cash_pool-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-overview-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-overview"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-overview",
+        "product-cash_pool-features",
+        "product-cash_pool-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-audience-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-audience"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-audience",
+        "product-cash_pool-overview",
+        "product-cash_pool-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-audience-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-audience"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-audience",
+        "product-cash_pool-prerequisites",
+        "product-cash_pool-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-features-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-features"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-features",
+        "product-cash_pool-limitations",
+        "product-cash_pool-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-features-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-features"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-features",
+        "product-cash_pool-overview",
+        "product-cash_pool-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-prerequisites-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-prerequisites",
+        "product-cash_pool-overview",
+        "product-cash_pool-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-prerequisites-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-audience",
+        "product-cash_pool-prerequisites",
+        "product-cash_pool-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-limitations-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-limitations"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-audience",
+        "product-cash_pool-limitations",
+        "product-cash_pool-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-cash_pool-limitations-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-cash_pool-limitations"
+      ],
+      "retrieved_ids": [
+        "product-cash_pool-limitations",
+        "product-cash_pool-features",
+        "product-cash_pool-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-application-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-application"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-application",
+        "process-cash_pool-change_cancel",
+        "process-cash_pool-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-application-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-application"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-application",
+        "process-cash_pool-materials",
+        "process-cash_pool-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-materials-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-materials"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-change_cancel",
+        "process-cash_pool-application",
+        "process-cash_pool-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-materials-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-materials"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-application",
+        "process-cash_pool-materials",
+        "process-cash_pool-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-steps-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-steps"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-steps",
+        "process-cash_pool-application",
+        "process-cash_pool-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-steps-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-steps"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-steps",
+        "process-cash_pool-application",
+        "process-cash_pool-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-duration-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-duration"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-application",
+        "process-cash_pool-duration",
+        "process-cash_pool-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-duration-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-duration"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-application",
+        "process-cash_pool-duration",
+        "process-cash_pool-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-change_cancel-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-change_cancel",
+        "process-cash_pool-steps",
+        "process-cash_pool-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-cash_pool-change_cancel-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-cash_pool-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-cash_pool-change_cancel",
+        "process-cash_pool-steps",
+        "process-cash_pool-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-fees-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-fees"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-fees",
+        "policy-cash_pool-effective",
+        "policy-cash_pool-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-fees-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-fees"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-fees",
+        "policy-cash_pool-effective",
+        "policy-cash_pool-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-effective-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-effective"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-effective",
+        "policy-cash_pool-fees",
+        "policy-cash_pool-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-effective-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-effective"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-effective",
+        "policy-cash_pool-fees",
+        "policy-cash_pool-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-approval-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-approval"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-security",
+        "policy-cash_pool-approval",
+        "policy-cash_pool-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-approval-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-approval"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-effective",
+        "policy-cash_pool-approval",
+        "policy-cash_pool-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-security-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-security"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-security",
+        "policy-cash_pool-approval",
+        "policy-cash_pool-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-security-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-security"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-security",
+        "policy-cash_pool-approval",
+        "policy-cash_pool-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-exceptions-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-exceptions",
+        "policy-cash_pool-approval",
+        "policy-cash_pool-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-cash_pool-exceptions-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-cash_pool-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-cash_pool-exceptions",
+        "policy-cash_pool-approval",
+        "policy-cash_pool-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-overview-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-overview"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-overview",
+        "product-working_capital_loan-audience",
+        "product-working_capital_loan-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-overview-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-overview"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-overview",
+        "product-working_capital_loan-features",
+        "product-working_capital_loan-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-audience-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-audience"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-audience",
+        "product-working_capital_loan-overview",
+        "product-working_capital_loan-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-audience-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-audience"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-audience",
+        "product-working_capital_loan-features",
+        "product-working_capital_loan-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-features-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-features"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-features",
+        "product-working_capital_loan-limitations",
+        "product-working_capital_loan-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-features-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-features"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-features",
+        "product-working_capital_loan-overview",
+        "product-working_capital_loan-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-prerequisites-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-prerequisites",
+        "product-working_capital_loan-overview",
+        "product-working_capital_loan-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-prerequisites-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-audience",
+        "product-working_capital_loan-prerequisites",
+        "product-working_capital_loan-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-limitations-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-limitations"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-audience",
+        "product-working_capital_loan-limitations",
+        "product-working_capital_loan-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-working_capital_loan-limitations-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-working_capital_loan-limitations"
+      ],
+      "retrieved_ids": [
+        "product-working_capital_loan-features",
+        "product-working_capital_loan-limitations",
+        "product-working_capital_loan-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-application-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-application"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-application",
+        "process-working_capital_loan-change_cancel",
+        "process-working_capital_loan-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-application-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-application"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-application",
+        "process-working_capital_loan-steps",
+        "process-working_capital_loan-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-materials-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-materials"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-change_cancel",
+        "process-working_capital_loan-application",
+        "process-working_capital_loan-steps"
+      ],
+      "hit": false,
+      "reciprocal_rank": 0.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-materials-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-materials"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-application",
+        "process-working_capital_loan-materials",
+        "process-working_capital_loan-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-steps-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-steps"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-steps",
+        "process-working_capital_loan-application",
+        "process-working_capital_loan-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-steps-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-steps"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-steps",
+        "process-working_capital_loan-duration",
+        "process-working_capital_loan-application"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-duration-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-duration"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-duration",
+        "process-working_capital_loan-application",
+        "process-working_capital_loan-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-duration-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-duration"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-application",
+        "process-working_capital_loan-duration",
+        "process-working_capital_loan-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-change_cancel-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-change_cancel",
+        "process-working_capital_loan-steps",
+        "process-working_capital_loan-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-working_capital_loan-change_cancel-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-working_capital_loan-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-working_capital_loan-change_cancel",
+        "process-working_capital_loan-steps",
+        "process-working_capital_loan-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-fees-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-fees"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-fees",
+        "policy-working_capital_loan-effective",
+        "policy-working_capital_loan-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-fees-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-fees"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-fees",
+        "policy-working_capital_loan-effective",
+        "policy-working_capital_loan-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-effective-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-effective"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-effective",
+        "policy-working_capital_loan-fees",
+        "policy-working_capital_loan-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-effective-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-effective"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-effective",
+        "policy-working_capital_loan-approval",
+        "policy-working_capital_loan-fees"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-approval-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-approval"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-security",
+        "policy-working_capital_loan-approval",
+        "policy-working_capital_loan-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-approval-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-approval"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-exceptions",
+        "policy-working_capital_loan-effective",
+        "policy-working_capital_loan-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-security-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-security"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-security",
+        "policy-working_capital_loan-approval",
+        "policy-working_capital_loan-fees"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-security-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-security"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-security",
+        "policy-working_capital_loan-approval",
+        "policy-working_capital_loan-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-exceptions-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-exceptions",
+        "policy-working_capital_loan-approval",
+        "policy-working_capital_loan-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-working_capital_loan-exceptions-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-working_capital_loan-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-working_capital_loan-exceptions",
+        "policy-working_capital_loan-approval",
+        "policy-working_capital_loan-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-overview-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-overview"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-overview",
+        "product-bank_acceptance-audience",
+        "product-bank_acceptance-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-overview-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-overview"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-overview",
+        "product-bank_acceptance-features",
+        "product-bank_acceptance-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-audience-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-audience"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-audience",
+        "product-bank_acceptance-overview",
+        "product-bank_acceptance-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-audience-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-audience"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-audience",
+        "product-bank_acceptance-features",
+        "product-bank_acceptance-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-features-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-features"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-features",
+        "product-bank_acceptance-limitations",
+        "product-bank_acceptance-audience"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-features-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-features"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-features",
+        "product-bank_acceptance-overview",
+        "product-bank_acceptance-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-prerequisites-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-prerequisites",
+        "product-bank_acceptance-overview",
+        "product-bank_acceptance-limitations"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-prerequisites-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-prerequisites"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-audience",
+        "product-bank_acceptance-prerequisites",
+        "product-bank_acceptance-features"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-limitations-1",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-limitations"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-audience",
+        "product-bank_acceptance-limitations",
+        "product-bank_acceptance-prerequisites"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-product-bank_acceptance-limitations-2",
+      "split": "test",
+      "domain": "product",
+      "expected_ids": [
+        "product-bank_acceptance-limitations"
+      ],
+      "retrieved_ids": [
+        "product-bank_acceptance-features",
+        "product-bank_acceptance-limitations",
+        "product-bank_acceptance-overview"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-application-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-application"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-application",
+        "process-bank_acceptance-change_cancel",
+        "process-bank_acceptance-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-application-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-application"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-application",
+        "process-bank_acceptance-steps",
+        "process-bank_acceptance-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-materials-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-materials"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-application",
+        "process-bank_acceptance-change_cancel",
+        "process-bank_acceptance-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-materials-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-materials"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-application",
+        "process-bank_acceptance-materials",
+        "process-bank_acceptance-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-steps-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-steps"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-steps",
+        "process-bank_acceptance-application",
+        "process-bank_acceptance-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-steps-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-steps"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-steps",
+        "process-bank_acceptance-application",
+        "process-bank_acceptance-duration"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-duration-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-duration"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-duration",
+        "process-bank_acceptance-application",
+        "process-bank_acceptance-steps"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-duration-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-duration"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-application",
+        "process-bank_acceptance-duration",
+        "process-bank_acceptance-change_cancel"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-change_cancel-1",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-change_cancel",
+        "process-bank_acceptance-steps",
+        "process-bank_acceptance-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-process-bank_acceptance-change_cancel-2",
+      "split": "test",
+      "domain": "process",
+      "expected_ids": [
+        "process-bank_acceptance-change_cancel"
+      ],
+      "retrieved_ids": [
+        "process-bank_acceptance-change_cancel",
+        "process-bank_acceptance-steps",
+        "process-bank_acceptance-materials"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-fees-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-fees"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-fees",
+        "policy-bank_acceptance-effective",
+        "policy-bank_acceptance-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-fees-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-fees"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-fees",
+        "policy-bank_acceptance-effective",
+        "policy-bank_acceptance-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-effective-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-effective"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-effective",
+        "policy-bank_acceptance-fees",
+        "policy-bank_acceptance-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-effective-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-effective"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-effective",
+        "policy-bank_acceptance-fees",
+        "policy-bank_acceptance-approval"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-approval-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-approval"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-security",
+        "policy-bank_acceptance-approval",
+        "policy-bank_acceptance-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-approval-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-approval"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-effective",
+        "policy-bank_acceptance-approval",
+        "policy-bank_acceptance-fees"
+      ],
+      "hit": true,
+      "reciprocal_rank": 0.5,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-security-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-security"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-security",
+        "policy-bank_acceptance-approval",
+        "policy-bank_acceptance-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-security-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-security"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-security",
+        "policy-bank_acceptance-approval",
+        "policy-bank_acceptance-exceptions"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-exceptions-1",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-exceptions",
+        "policy-bank_acceptance-approval",
+        "policy-bank_acceptance-effective"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    },
+    {
+      "id": "q-policy-bank_acceptance-exceptions-2",
+      "split": "test",
+      "domain": "policy",
+      "expected_ids": [
+        "policy-bank_acceptance-exceptions"
+      ],
+      "retrieved_ids": [
+        "policy-bank_acceptance-exceptions",
+        "policy-bank_acceptance-approval",
+        "policy-bank_acceptance-security"
+      ],
+      "hit": true,
+      "reciprocal_rank": 1.0,
+      "mode": "keyword"
+    }
+  ]
+}
